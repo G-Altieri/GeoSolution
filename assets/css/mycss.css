@@ -1,0 +1,99 @@
+.header {
+  background-color: #ff0000;
+ }
+
+
+.navbar {
+  overflow: hidden;
+ /* background-color:rgba(31, 30, 34, 0.5);*/
+ background-color: rgba(235, 120, 13,0);
+ color: #ff8c00; /* fix for not webkit browsers */
+ /*background: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);*/
+ }
+
+.navbar2{
+ background:black;
+}
+
+
+.dx{
+ float: right;
+}
+
+.sx{
+ float: left;
+}
+
+#navbar a {
+ 
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+
+  top: 0px;
+  position: fixed;
+  z-index: 1;
+  width: 90rem;
+	max-width: 90%;
+  
+}
+	
+
+@media screen and (max-width: 980px) {
+  .sticky {
+
+    top: 0px;
+    position: fixed;
+    z-index: 1;
+    width: 100rem;
+    max-width: 100%;
+    
+  }
+
+
+}
+
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
+
+
+.white{
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+}
+
+
+
+
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+
