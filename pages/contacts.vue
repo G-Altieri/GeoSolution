@@ -43,6 +43,7 @@
       </div>
     </div>
 
+
     <!-- Contattami -->
     <div
       class="text-black bg-white grid justify-items-center"
@@ -54,44 +55,44 @@
       </div>
 
       <!-- Container Contatti -->
-      <div class="grid-cols-6 grid gap-6 mt-4 mb-12">
-        <!-- Telephone -->
-        <img
-          src="~/assets/img/telefono.svg"
-          alt="Logo Telefono"
-          width="30px"
-          class="justify-self-end col-start-2 col-end-2"
-        />
-        <div
-          class="flex-grow flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
-        >
-          {{ $t("home.contatti.telefono") }}: 0873 363279
-        </div>
-        <!-- Email -->
-        <img
-          src="~/assets/img/email.svg"
-          alt="Logo Telefono"
-          width="30px"
-          class="inline-block justify-self-end col-start-2 col-end-2"
-        />
-        <div
-          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
-        >
-          {{ $t("home.contatti.email") }}: taddeigian@gmail.com
-        </div>
-        <!-- GPS -->
-        <img
-          src="~/assets/img/gps.svg"
-          alt="Logo GPS"
-          width="30px"
-          class="justify-self-end col-start-2 col-end-2"
-        />
-        <div
-          class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56"
-          :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
-        >
-          Via Pitagora, 69, 66054 Vasto CH
-        </div>
+        <div class="grid-cols-6 grid gap-6 mt-4 mb-12">
+          <!-- Telephone -->
+          <img
+            src="~/assets/img/telefono.svg"
+            alt="Logo Telefono"
+            width="30px"
+            class="justify-self-end col-start-2 col-end-2"
+          />
+          <div
+            class="flex-grow flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
+          >
+            {{ $t("home.contatti.telefono") }}: 0873 363279
+          </div>
+          <!-- Email -->
+          <img
+            src="~/assets/img/email.svg"
+            alt="Logo Telefono"
+            width="30px"
+            class="inline-block justify-self-end col-start-2 col-end-2"
+          />
+          <div
+            class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
+          >
+            {{ $t("home.contatti.email") }}: taddeigian@gmail.com
+          </div>
+          <!-- GPS -->
+          <img
+            src="~/assets/img/gps.svg"
+            alt="Logo GPS"
+            width="30px"
+            class="justify-self-end col-start-2 col-end-2"
+          />
+          <div
+            class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56"
+            :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
+          >
+            Via Pitagora, 69, 66054 Vasto CH
+          </div>
       </div>
 
       <iframe
@@ -170,4 +171,13 @@ export default {
 </script>
 
 <style>
+.testBg {
+  /*background-image: url("~assets/img/a.jpg");*/
+  background-repeat: no-repeat;
+  background-size: initial;
+  background-attachment: fixed;
+  background-position: center;
+width: 100%;
+height: 100px;
+}
 </style>

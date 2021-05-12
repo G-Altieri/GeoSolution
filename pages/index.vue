@@ -98,10 +98,11 @@
       </div>
     </div>
 
-    <!-- Mappa -->
+
+        <!-- Mappa -->
     <div class="bg-white">
       <iframe
-        class="shadow-lg mb-6"
+        class="shadow-lg mb-6 my-6"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.275976132437!2d14.703210646450747!3d42.11952658530392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330ddb3244e5ccd%3A0x346b60805fcb287e!2sGeo%20Solution%20Studio%20di%20Geologia%20di%20Taddei%20Gianluca!5e0!3m2!1sit!2sit!4v1620675696385!5m2!1sit!2sit"
         width="100%"
         height="450"
@@ -121,35 +122,40 @@
         {{ $t("home.contatti.title") }}
       </div>
 
-      <!-- Telefono -->
-      <div class="justify-self-center flex items-stretch my-6">
+
+
+  <!-- Container Contatti -->
+      <div class="grid-cols-6 grid gap-6 mt-4 mb-12 w-full md:w-1/2 mx-auto">
+        <!-- Telephone -->
         <img
           src="~/assets/img/telefono.svg"
           alt="Logo Telefono"
           width="30px"
-          class="inline-block mx-3"
+          class="justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="flex-grow inline-block self-center font-light text-left col-span-2"
+          class="flex-grow flex-shrink col-start-3 col-end-6 col-span-3 self-center font-light text-left"
         >
-          {{ $t("home.contatti.telefono") }}: 0873 363279
+          <!-- {{ $t("home.contatti.telefono") }}: -->
+           0873 363279
         </div>
-      </div>
-
-      <!-- Email -->
-      <div class="flex items-stretch my-6 justify-self-center">
+        <!-- Email -->
         <img
           src="~/assets/img/email.svg"
           alt="Logo Telefono"
           width="30px"
-          class="mx-3 inline-block"
+          class="inline-block justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="inline-block flex-grow self-center font-light text-left col-span-2"
+          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
         >
-          {{ $t("home.contatti.email") }}: taddeigian@gmail.com
+          <!-- {{ $t("home.contatti.email") }}: -->
+           taddeigian@gmail.com
         </div>
+   
       </div>
+
+
 
       <!-- Button Invia Email -->
       <div class="my-4 mb-12">
@@ -160,6 +166,7 @@
         </nuxt-link>
       </div>
     </div>
+
 
     <!-- Separe Carosello -->
     <div class="bg-gray-700">

@@ -1,6 +1,6 @@
 <template>
    <div class="flex items-stretch rounded-xl border-2 border-green-500 p-2 bg-white shadow-md x">
-      <img width="80px" :src="require(`~/assets/img/service/${img}.svg`)" alt="geologiche" class="flex-none self-center">
+      <img width="80px" :src="require(`~/assets/img/service/${img}.svg`)" :alt="img" class="flex-none self-center">
       <div class="mx-2 font-semibold flex-grow self-center text-sm md:text-xl" 
       :class="{'text-xl':txtXl}"
       > {{text}}  <div v-if="text1"> {{text1}}</div>  <div v-if="text2"> {{text2}}</div> </div>

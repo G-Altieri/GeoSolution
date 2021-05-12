@@ -22,7 +22,7 @@
       <service :text="$t('service.content.7')" img="scavo" :txtXl="false" />
       <service :text="$t('service.content.8')" img="maps" />
       <service :text="$t('service.content.9')" img="pozzo" />
-      <service :text="$t('service.content.10')" img="maps" />
+      <service :text="$t('service.content.10')" img="acqua" />
     </div>
 </div>
 

@@ -32,8 +32,8 @@ export default {
     css: [
         '~/assets/css/main.css',
         '~/assets/font/Poppins.css',
-        'vue-slick-carousel/dist/vue-slick-carousel-theme.css',
-        'vue-slick-carousel/dist/vue-slick-carousel.css',
+        //'vue-slick-carousel/dist/vue-slick-carousel-theme.css',
+        //'vue-slick-carousel/dist/vue-slick-carousel.css',
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
