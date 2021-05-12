@@ -1,12 +1,12 @@
 <template>
   <div class="mx-auto text-black grid grid-cols-1 text-center bg-white">
     <div>
-      <h1 class="w-full text-4xl font-lite my-20">Portfolio Aziende</h1>
+      <h1 class="w-full text-4xl font-lite my-20" id="titlePortfolio">Portfolio Aziende</h1>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center" id="a1">
       <!-- Aqualand -->
-     <a href="https://www.aqualandvasto.com" class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" target="_blank">
+     <a href="https://www.aqualandvasto.com"  class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" target="_blank">
      
         <img
           src="~/assets/img/loghi aziende/aqualand.png"
@@ -102,7 +102,7 @@
       <h1 class="w-full text-4xl font-lite my-20">Comuni</h1>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center" href="https://www.comune.vasto.ch.it/" target="_blank">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center" id="a1" href="https://www.comune.vasto.ch.it/" target="_blank">
       <!-- Vasto  -->
       <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto">   
         <div class="text-2xl font-light">Vasto</div>
@@ -178,7 +178,39 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+
+    }
+  },
+  mounted(){
+this.$anime({
+   targets: "#a1 a",
+    translateY: ["100px", "0px"],
+    opacity: ["0", "1"],
+      easing: "easeInOutCubic", //https://easings.net/it
+      duration: 500,
+      delay:250,
+      autoplay: true,
+      delay: this.$anime.stagger(200),
+      complete: () => {},
+
+    });
+this.$anime({
+   targets: "#titlePortfolio",
+    translateX: ["100px", "0px"],
+    opacity: ["0", "1"],
+      easing: "easeInOutCubic", //https://easings.net/it
+      duration: 500,
+      delay:750,
+      autoplay: true,
+
+      complete: () => {},
+
+    });
+  }
+};
 </script>
 
 <style>

@@ -37,15 +37,15 @@
       </div>
 
       <div class="my-4 mb-12 cursor-pointer pointer">
-          <div class="btn p-3 mx-auto duration-150 shadow-lg" @click="invioMsg()">
-            {{ $t("contacts.form.btn") }}
-          </div>
+        <div class="btn p-3 mx-auto duration-150 shadow-lg" @click="invioMsg()">
+          {{ $t("contacts.form.btn") }}
+        </div>
       </div>
     </div>
 
-  <!-- Contattami -->
+    <!-- Contattami -->
     <div
-      class="text-black bg-white  grid justify-items-center"
+      class="text-black bg-white grid justify-items-center"
       :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
     >
       <!-- Title -->
@@ -53,43 +53,38 @@
         {{ $t("contacts.contatti") }}
       </div>
 
-      <!-- Telefono -->
-      <div class="justify-self-center flex grid-cols-6 grid my-6 ">
+      <!-- Container Contatti -->
+      <div class="grid-cols-6 grid gap-6 mt-4 mb-12">
+        <!-- Telephone -->
         <img
           src="~/assets/img/telefono.svg"
           alt="Logo Telefono"
           width="30px"
-          class=" mx-3 col-start-2 col-end-2"
+          class="justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="flex-grow  flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
+          class="flex-grow flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
         >
           {{ $t("home.contatti.telefono") }}: 0873 363279
         </div>
-      </div>
-
-      <!-- Email -->
-      <div class="flex  grid-cols-6 grid my-6 justify-self-center">
+        <!-- Email -->
         <img
           src="~/assets/img/email.svg"
           alt="Logo Telefono"
           width="30px"
-          class="mx-3 inline-block col-start-2 col-end-2"
+          class="inline-block justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-2 font-light text-left col-span-2"
+          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
         >
           {{ $t("home.contatti.email") }}: taddeigian@gmail.com
         </div>
-      </div>
-
-    <!-- Gps -->
-      <div class="flex  grid-cols-6 grid my-6 justify-self-center">
+        <!-- GPS -->
         <img
           src="~/assets/img/gps.svg"
           alt="Logo GPS"
           width="30px"
-          class="justify-self-end mx-3 col-start-2 col-end-2"
+          class="justify-self-end col-start-2 col-end-2"
         />
         <div
           class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56"
@@ -98,9 +93,9 @@
           Via Pitagora, 69, 66054 Vasto CH
         </div>
       </div>
-      
-        <iframe
-        class="shadow-lg "
+
+      <iframe
+        class="shadow-lg"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.275976132437!2d14.703210646450747!3d42.11952658530392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330ddb3244e5ccd%3A0x346b60805fcb287e!2sGeo%20Solution%20Studio%20di%20Geologia%20di%20Taddei%20Gianluca!5e0!3m2!1sit!2sit!4v1620675696385!5m2!1sit!2sit"
         width="100%"
         height="450"
@@ -108,9 +103,7 @@
         allowfullscreen=""
         loading="lazy"
       ></iframe>
-
     </div>
-
   </div>
 </template>
 
@@ -128,43 +121,51 @@ export default {
       error_name: "",
       error_email: "",
       error_message: "",
-      msg_default:"",
+      msg_default: "",
     };
   }, //data
   components: {
     ginput,
   },
-  methods:{
-      invioMsg(){
-          let x = this.controlloForm()
+  methods: {
+    invioMsg() {
+      let x = this.controlloForm();
 
-          if(x){
-
-          }
-          else{
-
-          }
-      },
-      controlloForm(){
-          let x
-          if( this.form.name == null || this.form.name == undefined || this.form.name == ""){
-            this.error_name="Inserisci un Nome"
-            x = true
-          }
-          if( this.form.email == null || this.form.email == undefined || this.form.email == ""){
-              this.error_email="Inserisci un Email valida"
-              x = true
-          }
-          if( this.form.message == null || this.form.message == undefined || this.form.message == ""){
-              this.msg_default="Nessun messaggio scritto da parte dell' utente"
-              x = true
-          }
-          if(x){
-
-          }
-          return true
+      if (x) {
+      } else {
       }
-  }
+    },
+    controlloForm() {
+      let x;
+      if (
+        this.form.name == null ||
+        this.form.name == undefined ||
+        this.form.name == ""
+      ) {
+        this.error_name = "Inserisci un Nome";
+        x = true;
+      }
+      if (
+        this.form.email == null ||
+        this.form.email == undefined ||
+        this.form.email == ""
+      ) {
+        this.error_email = "Inserisci un Email valida";
+        x = true;
+      }
+      if (
+        this.form.message == null ||
+        this.form.message == undefined ||
+        this.form.message == ""
+      ) {
+        this.msg_default = "Nessun messaggio scritto da parte dell' utente";
+        x = true;
+      }
+      if (x) {
+      }
+      return true;
+    },
+  },
 };
 </script>
 

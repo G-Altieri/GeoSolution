@@ -28,6 +28,22 @@ export default {
         },
         contatti: "Contatti",
         maps: "Puoi trovarci qui",
-    }
-
+    },
+    service: {
+        title: "Lo studio è specializzato, in proprio ed in collaborazioni con ditte qualificate del settore, in: ",
+        content: {
+            1: "Relazione Geologiche",
+            2: "Relazione Idrogeologiche",
+            3: "Sondaggi Geognostici e Ambientali",
+            40: "Prove Penetrometriche Dinamiche Medie (DL30)",
+            41: "Pesanti (DPSH) e Superpesanti (SCPT)",
+            42: "Penetrometriche statiche (CPT)",
+            5: "Indagini Geofisiche (MASW, HVSR, DOWN HOLE, Sismica a Rifrazione)",
+            6: "Redazione di Piani di caratterizzazione e Analisi Ambientali Iniziali",
+            7: "Piani di Utilizzo delle terre e rocce da scavo",
+            8: "Studi di Microzonazione Sismica",
+            9: "Prove di Portata su un pozzo",
+            10: "Ricerca acqua per realizzazione pozzi",
+        }
+    },
 }

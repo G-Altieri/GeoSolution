@@ -24,7 +24,7 @@ export default {
         link: [{
             rel: 'icon',
             type: 'image/x-icon',
-            href: '~/assets/img/logo-colorato.svg'
+            href: 'favicon.ico'
         }]
     },
 
