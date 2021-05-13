@@ -98,8 +98,7 @@
       </div>
     </div>
 
-
-        <!-- Mappa -->
+    <!-- Mappa -->
     <div class="bg-white">
       <iframe
         class="shadow-lg mb-6 my-6"
@@ -122,9 +121,7 @@
         {{ $t("home.contatti.title") }}
       </div>
 
-
-
-  <!-- Container Contatti -->
+      <!-- Container Contatti -->
       <div class="grid-cols-6 grid gap-6 mt-4 mb-12 w-full md:w-1/2 mx-auto">
         <!-- Telephone -->
         <img
@@ -137,7 +134,7 @@
           class="flex-grow flex-shrink col-start-3 col-end-6 col-span-3 self-center font-light text-left"
         >
           <!-- {{ $t("home.contatti.telefono") }}: -->
-           0873 363279
+          0873 363279
         </div>
         <!-- Email -->
         <img
@@ -150,12 +147,9 @@
           class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
         >
           <!-- {{ $t("home.contatti.email") }}: -->
-           taddeigian@gmail.com
+          taddeigian@gmail.com
         </div>
-   
       </div>
-
-
 
       <!-- Button Invia Email -->
       <div class="my-4 mb-12">
@@ -167,47 +161,84 @@
       </div>
     </div>
 
-
     <!-- Separe Carosello -->
-    <div class="bg-gray-700">
-    <VueSlickCarousel v-bind="settings" :arrows="queryPc" :dots="true">
-      <div>
-        <img
-          :src="require(`~/assets/img/slider-foto/${MediaQuery2}/slider-1.jpg`)"
-          alt="Slider 1"  width="100%"
-        />
-      </div>
-      <div>
-        <img
-          :src="require(`~/assets/img/slider-foto/${MediaQuery2}/slider-2.jpg`)"
-          alt="Slider 2"  width="100%"
-        />
-      </div>
-      <div>
-        <img
-          :src="require(`~/assets/img/slider-foto/${MediaQuery2}/slider-3.jpg`)"
-          alt="Slider 3" width="100%"
-        />
-      </div>
-    </VueSlickCarousel>
-
-<div class="h-0 text-black">
-
-</div>
-
+    <div class="bg-black">
+      <VueSlickCarousel v-bind="settings" :arrows="queryPc" :dots="true">
+        <div>
+          <img
+            :src="
+              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-1.jpg`)
+            "
+            alt="Slider 1"
+            width="100%"
+          />
+        </div>
+        <div>
+          <img
+            :src="
+              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-2.jpg`)
+            "
+            alt="Slider 2"
+            width="100%"
+          />
+        </div>
+        <div>
+          <img
+            :src="
+              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-3.jpg`)
+            "
+            alt="Slider 3"
+            width="100%"
+          />
+        </div>
+      </VueSlickCarousel>
     </div>
 
+    <div class="bg-black text-white">
+      <!-- Title -->
+      <div class="text-2xl font-semibold my-6">Servizi e Portfolio</div>
 
+      <div class="my-12 text-center gap-4 grid grid-cols-3">
+        <div class="text-2xl">Giovanni</div>
+        <div class="text-2xl">Giovanni</div>
+        <div class="text-2xl">Giovanni</div>
 
+        <input
+          class="bg-black text-white text-5xl text-center"
+          type="text"
+          readonly
+          value="1"
+          id="num1"
+          v-waypoint="{ active: true, callback: scrollAnimIndex }"
+        />
+        <input
+          class="bg-black text-white text-5xl text-center"
+          type="text"
+          readonly
+          value="2"
+          id="num1"
+        />
+        <input
+          class="bg-black text-white text-5xl text-center"
+          type="text"
+          readonly
+          value="3"
+          id="num1"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
-
+var anime1
 export default {
   data() {
     return {
+
+      anima1OneShot:false,
+
       settings: {
         dots: true,
         dotsClass: "slick-dots custom-dot-class",
@@ -282,9 +313,75 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+    scrollAnimIndex({ going, direction }) {
+      console.log("Scroll");
+
+  
+     if(this.anima1OneShot==false){
+
+       if (direction != undefined) {
+         anime1.play();
+         this.anima1OneShot=true;
+      
+      }
+       }  
+
+     /* console.log(this.anima1OneShot);
+      this.anima1OneShot=true
+      console.log(this.anima1OneShot);*/
+    },
+
+    onWaypoint({ going, direction }) {
+      // going: in, out
+      // direction: top, right, bottom, left
+      if (going === this.$waypointMap.GOING_IN) {
+        console.log("waypoint going in!");
+      }
+
+      if (direction === this.$waypointMap.DIRECTION_TOP) {
+        console.log("waypoint going top!");
+      }
+    },
+  },
+
+  mounted() {
+    anime1=  this.$anime({
+        targets: "#num1",
+        value: [0, 1005],
+        round: 1,
+        easing: "easeInOutExpo",
+        duration: 5000,
+        loop:false,
+        autoplay:false,
+        complete: () => {},
+      });
+    /*
+const scene2 = this.$scrollmagic.scene({
+    // ID of element where animation starts
+    triggerElement: '#x1',
+ 
+    // {0,0.5,1} - animations starts from {top,center,end} of window
+    triggerHook: 0.5,
+ 
+    // Duration of animation
+    duration: 300
+  })
+  .addIndicators({ 
+    name: 'a',
+    color:'black',
+    indent:200,
+     })
+ // .addTo(controller)*/
+  },
 };
 </script>
 
+
+
+
 <style>
+/*
+
+*/
 </style>

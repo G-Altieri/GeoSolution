@@ -24,7 +24,7 @@ export default {
         link: [{
             rel: 'icon',
             type: 'image/x-icon',
-            href: 'favicon.ico'
+            href: 'logo.ico'
         }]
     },
 
@@ -44,7 +44,19 @@ export default {
 
         //carosello
 
-        '~/plugins/vue-slick-carousel.js'
+        '~/plugins/vue-slick-carousel.js',
+
+
+        {
+            src: '~plugins/vue-magic-scroll.js',
+            ssr: false
+        },
+        {
+            src: '~plugins/vue-waypoint.js',
+            ssr: false,
+            mode: 'client'
+        },
+
 
 
     ],

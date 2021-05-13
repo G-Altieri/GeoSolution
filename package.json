@@ -17,7 +17,9 @@
         "nuxt-animejs": "^1.2.1",
         "nuxt-i18n": "^6.27.0",
         "vue-mq": "^1.0.1",
-        "vue-slick-carousel": "^1.0.6"
+        "vue-scrollmagic": "^1.2.0",
+        "vue-slick-carousel": "^1.0.6",
+        "vue-waypoint": "^3.5.2"
     },
     "devDependencies": {
         "@nuxtjs/tailwindcss": "^4.0.1",

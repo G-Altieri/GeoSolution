@@ -6,8 +6,8 @@
   </div> -->
   <div>
 
-    <div class="w-full">
-      <img src="~/assets/img/footer.jpg" alt="footer img" width="100%" class="bgFooter" :class="{'indexT':$nuxt.$route.path=='/'}">
+    <div class="w-full bgFooter">
+      <img src="~/assets/img/footer.jpg" alt="footer img" width="100%" class="" :class="{'indexT':$nuxt.$route.path=='/'}">
     </div>
 
   </div>
@@ -18,10 +18,12 @@
 
 <style>
 .bgFooter{
-bottom: 0;
-position: absolute;
+/* bottom: 0; */
+background: #1e1f23;
+/*position: absolute;*/
 }
 .indexT{
   transform: translateY(-7px);
+  /*height: calc(100%+7px);*/
 }
 </style>
