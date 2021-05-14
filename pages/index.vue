@@ -315,9 +315,9 @@ export default {
   },
   methods: {
     scrollAnimIndex({ going, direction }) {
-      console.log("Scroll");
+     // console.log("Scroll");
 
-  
+
      if(this.anima1OneShot==false){
 
        if (direction != undefined) {

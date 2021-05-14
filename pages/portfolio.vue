@@ -1,13 +1,21 @@
 <template>
   <div class="mx-auto text-black grid grid-cols-1 text-center bg-white">
     <div>
-      <h1 class="w-full text-4xl font-lite my-20" id="titlePortfolio">Portfolio Aziende</h1>
+      <h1 class="w-full text-4xl font-lite my-20" id="titlePortfolio">
+        Portfolio Aziende
+      </h1>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center" id="a1">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center"
+      id="a1"
+    >
       <!-- Aqualand -->
-     <a href="https://www.aqualandvasto.com"  class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" target="_blank">
-     
+      <a
+        href="https://www.aqualandvasto.com"
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/aqualand.png"
           alt="Aqualand del Vasto"
@@ -17,7 +25,11 @@
       </a>
 
       <!-- Di fonzo -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="https://difonzobus.com" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://difonzobus.com"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/di fonzo.png"
           alt="di fonzo"
@@ -27,7 +39,11 @@
       </a>
 
       <!-- enel-->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="https://www.enel.it" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://www.enel.it"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/enel.png"
           alt="enel"
@@ -37,7 +53,11 @@
       </a>
 
       <!-- Energie Spa -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"  href="http://www.energiaspa.eu" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://www.energiaspa.eu"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/energie_spa.png"
           alt="Enrgie Spa"
@@ -47,7 +67,11 @@
       </a>
 
       <!--gransolarghella -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="https://www.gransolarghella.com/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://www.gransolarghella.com/"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/gransolarghella.png"
           alt="gransolarghella"
@@ -57,7 +81,11 @@
       </a>
 
       <!-- gruppo de cinque -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="https://de5.it/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://de5.it/"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/gruppo de cinque.png"
           alt="gruppo de cinque"
@@ -67,7 +95,11 @@
       </a>
 
       <!-- hadri tanks -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="https://www.grupposolmar.it/aziende/hadri-tanks/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://www.grupposolmar.it/aziende/hadri-tanks/"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/hadri tanks.png"
           alt="hadri tanks"
@@ -77,7 +109,11 @@
       </a>
 
       <!-- puccioni -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="http://puccioni.it/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://puccioni.it/"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/puccioni.png"
           alt="puccioni"
@@ -87,7 +123,11 @@
       </a>
 
       <!-- sicilsaldo -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="http://www.sicilsaldo.it/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://www.sicilsaldo.it/"
+        target="_blank"
+      >
         <img
           src="~/assets/img/loghi aziende/sicilsaldo.png"
           alt="sicilsaldo"
@@ -99,12 +139,23 @@
 
     <!-- Comuni Title -->
     <div>
-      <h1 class="w-full text-4xl font-lite my-20">Comuni</h1>
+      <h1
+        class="w-full text-4xl font-lite my-20"
+        id="titleComuni"
+        v-waypoint="{ active: true, callback: scrollAnimPortfolio }"
+      >
+        Comuni
+      </h1>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center" id="a1" href="https://www.comune.vasto.ch.it/" target="_blank">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 justify-items-center"
+      id="a2"
+      href="https://www.comune.vasto.ch.it/"
+      target="_blank"
+    >
       <!-- Vasto  -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto">   
+      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto">
         <div class="text-2xl font-light">Vasto</div>
         <img
           src="~/assets/img/loghi aziende/vasto.png"
@@ -114,11 +165,12 @@
         />
       </a>
 
-
-
-
       <!-- tossicia  -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="http://www.comune.tossicia.te.it/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://www.comune.tossicia.te.it/"
+        target="_blank"
+      >
         <div class="text-2xl font-light">Tossicia</div>
         <img
           src="~/assets/img/loghi aziende/tossicia.png"
@@ -129,7 +181,11 @@
       </a>
 
       <!-- roccacasale  -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="http://www.roccacasale.gov.it/hh/index.php" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://www.roccacasale.gov.it/hh/index.php"
+        target="_blank"
+      >
         <div class="text-2xl font-light">Roccacasale</div>
         <img
           src="~/assets/img/loghi aziende/roccacasale.png"
@@ -140,7 +196,11 @@
       </a>
 
       <!-- montedorisio  -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="http://www.comune.monteodorisio.ch.it/hh/index.php" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://www.comune.monteodorisio.ch.it/hh/index.php"
+        target="_blank"
+      >
         <div class="text-2xl font-light">Montedorisio</div>
         <img
           src="~/assets/img/loghi aziende/montedorisio.png"
@@ -151,7 +211,11 @@
       </a>
 
       <!-- lentella  -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="http://comunedilentella.it/hh/index.php" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://comunedilentella.it/hh/index.php"
+        target="_blank"
+      >
         <div class="text-2xl font-light">Lentella</div>
         <img
           src="~/assets/img/loghi aziende/lentella.png"
@@ -162,7 +226,11 @@
       </a>
 
       <!-- guilmi  -->
-      <a class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto" href="https://www.comune.guilmi.ch.it/" target="_blank">
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://www.comune.guilmi.ch.it/"
+        target="_blank"
+      >
         <div class="text-2xl font-light">Guilmi</div>
         <img
           src="~/assets/img/loghi aziende/guilmi.png"
@@ -178,38 +246,81 @@
 </template>
 
 <script>
+var anime1;
 export default {
-  data(){
-    return{
-
-    }
+  data() {
+    return {
+       anima1OneShot: false
+        };
   },
-  mounted(){
-this.$anime({
-   targets: "#a1 a",
-    translateY: ["100px", "0px"],
-    opacity: ["0", "1"],
+  mounted() {
+    //Aziende
+    this.$anime({
+      targets: "#a1 a",
+      translateY: ["100px", "0px"],
+      opacity: ["0", "1"],
       easing: "easeInOutCubic", //https://easings.net/it
       duration: 500,
-      delay:250,
+      delay: 250,
       autoplay: true,
       delay: this.$anime.stagger(200),
       complete: () => {},
-
     });
-this.$anime({
-   targets: "#titlePortfolio",
-    translateX: ["100px", "0px"],
-    opacity: ["0", "1"],
+
+    //Portfolio animation
+    this.$anime({
+      targets: "#titlePortfolio",
+      translateX: ["100px", "0px"],
+      opacity: ["0", "1"],
       easing: "easeInOutCubic", //https://easings.net/it
       duration: 500,
-      delay:750,
+      delay: 750,
       autoplay: true,
 
       complete: () => {},
-
     });
-  }
+
+    //Comuni
+    anime1 = this.$anime
+      .timeline({
+        easing: "easeInOutCubic", //https://easings.net/it
+        duration: 500,
+        delay: 250,
+        autoplay: false,
+        delay: this.$anime.stagger(200),
+        complete: () => {},
+      })
+
+    
+
+    //Portfolio animation
+    .add({
+      targets: "#titleComuni",
+      translateX: ["100px", "0px"],
+      opacity: ["0", "1"],
+      delay: 300,
+
+    })
+      .add({
+        targets: "#a2 a",
+        translateY: ["100px", "0px"],
+        opacity: ["0", "1"],
+      })
+  },
+  methods: {
+    scrollAnimPortfolio({ going, direction }) {
+      //Controllo animazione scroll
+        console.log(this.anima1OneShot)
+        console.log(direction)
+      if (this.anima1OneShot == false) {
+        if (direction != undefined && direction != "bottom") {
+          anime1.play();
+          console.log("play")
+          this.anima1OneShot = true;
+        }
+      }
+    },
+  },
 };
 </script>
 

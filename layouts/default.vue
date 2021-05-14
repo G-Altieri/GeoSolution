@@ -15,7 +15,7 @@
     <!-- Body --> 
     <Nuxt />
 
-    <Footer />
+    <Footer :mobile="MediaQuery3"/>
 </div>
 
     <!-- Footer -->
@@ -40,6 +40,22 @@ export default {
   },
   computed: {
     ...mapGetters(["getStatusMenu"]),
+  },
+
+    computed: {
+
+    MediaQuery3() {
+      switch (this.$mq) {
+        case "sm":
+          return "mobile";
+        case "md":
+          return "mobile";
+        case "prelg":
+          return "pc";
+        case "lg":
+          return "pc";
+      }
+    },
   },
 
 }
