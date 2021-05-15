@@ -194,50 +194,131 @@
       </VueSlickCarousel>
     </div>
 
+    <!-- Container servizi e portfolio -->
     <div class="bg-black text-white">
-      <!-- Title -->
-      <div class="text-2xl font-semibold my-6">Servizi e Portfolio</div>
+      <!-- Title Portfolio-->
+      <div class="text-4xl font-semibold my-20">
+        {{ $t("home.portfolio.title") }}
+      </div>
 
-      <div class="my-12 text-center gap-4 grid grid-cols-3">
-        <div class="text-2xl">Giovanni</div>
-        <div class="text-2xl">Giovanni</div>
-        <div class="text-2xl">Giovanni</div>
 
-        <input
-          class="bg-black text-white text-5xl text-center"
-          type="text"
-          readonly
-          value="1"
-          id="num1"
-          v-waypoint="{ active: true, callback: scrollAnimIndex }"
-        />
-        <input
-          class="bg-black text-white text-5xl text-center"
-          type="text"
-          readonly
-          value="2"
-          id="num1"
-        />
-        <input
-          class="bg-black text-white text-5xl text-center"
-          type="text"
-          readonly
-          value="3"
-          id="num1"
+      <!-- Anni di Esperinza
+     Lavori Effettuati
+     Clienti Soddisfatti
+ -->
+
+
+      <!-- Animazioni Numeri aziendali -->
+        <div
+          class="my-12 mb-12 text-center w-full gap-4 grid grid-cols-1 md:grid-cols-3 flex items-center"
+          v-waypoint="{ active: true, callback: scrollAnimIndex }">
+
+        <!-- Element 1 -->
+        <div class="grid grid-row-2 gap-4 my-8">
+          <!-- Title 1 -->
+          <div class="text-2xl ">{{ $t("home.portfolio.content1") }}</div>
+          <!-- 1 -->
+          <div class="bg-black text-white text-5xl text-center flex inline-flex">
+            <div class="flex-auto text-right">+</div>
+            <div id="num1" class="flex-auto text-left">x</div>
+          </div>
+        </div>
+
+
+        <!-- Element 2 -->
+        <div class="grid grid-row-2 gap-4 my-4">
+          <!-- Title 2 -->
+          <div class="text-2xl ">{{ $t("home.portfolio.content2") }}</div>
+          <!-- 2 -->
+          <div class="bg-black text-white text-5xl text-center flex inline-flex">
+            <div class="flex-auto text-right">+</div>
+            <div id="num2" class="flex-auto text-left">x2</div>
+          </div>
+        </div>
+
+
+        <!-- Element 3 -->
+        <div class="grid grid-row-2 gap-4 mt-8">
+          <!-- Title 3 -->
+          <div class="text-2xl">{{ $t("home.portfolio.content3") }}</div>
+          <!-- 3 -->
+          <div class="bg-black text-white text-5xl text-center flex inline-flex">
+            <div class="flex-auto text-right">+</div>
+            <div id="num3" class="flex-auto text-left">x3</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Fine Portfolio Content -->
+
+      <!-- Scopri di piu Portfolio-->
+      <div class="mb-32 mx-auto">
+        <nuxt-link to="/portfolio">
+          <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
+            {{ $t("home.btn2") }}
+          </div>
+        </nuxt-link>
+      </div>
+
+
+
+      <!-- Title Service-->
+      <div class="text-4xl font-semibold mt-20 mb-6">
+        {{ $t("home.service.title") }}
+      </div>
+
+      <!-- Content Service Index -->
+      <div
+        class="text-white text-2xl font-nomal my-4 px-4 md:px-6 lg:px-12 mx-auto"
+      >
+        {{ $t("home.service.content") }}
+      </div>
+
+      <!-- grid img service -->
+      <div
+        class="my-12 mb-10 mx-auto text-center gap-6 justify-items-center w-3/4 lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        id="indexService"
+      >
+        <serviceIndex width="100" img="geologiche" />
+        <serviceIndex width="100" img="idrogeologiche" />
+        <serviceIndex width="100" img="idrogeologiche" />
+        <serviceIndex width="100" img="sondaggi" />
+        <serviceIndex width="100" img="medie" />
+        <serviceIndex width="100" img="masw" />
+        <serviceIndex width="100" img="ambiente" />
+        <serviceIndex width="100" img="scavo" />
+        <serviceIndex width="100" img="maps" />
+        <serviceIndex width="100" img="pozzo" />
+        <serviceIndex
+          width="90"
+          img="acqua"
+          classAdd="col-span-2 md:col-span-1 lg:col-span-5"
         />
       </div>
+
+      <!-- Scopri di piu -->
+      <div class="my-2 mb-20 mx-auto">
+        <nuxt-link to="/service">
+          <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
+            {{ $t("home.btn2") }}
+          </div>
+        </nuxt-link>
+      </div>
     </div>
+    <!-- Fine Container  -->
   </div>
 </template>
 
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
-var anime1
+import serviceIndex from "@/components/service_index.vue";
+var anime1;
+var anime2;
+var anime3;
 export default {
   data() {
     return {
-
-      anima1OneShot:false,
+      anima1OneShot: false,
 
       settings: {
         dots: true,
@@ -256,7 +337,7 @@ export default {
       },
     };
   },
-  components: { VueSlickCarousel },
+  components: { VueSlickCarousel, serviceIndex },
   computed: {
     queryTablet() {
       switch (this.$mq) {
@@ -278,6 +359,7 @@ export default {
           return false;
       }
     },
+
     queryPc() {
       switch (this.$mq) {
         case "sm":
@@ -315,21 +397,15 @@ export default {
   },
   methods: {
     scrollAnimIndex({ going, direction }) {
-     // console.log("Scroll");
-
-
-     if(this.anima1OneShot==false){
-
-       if (direction != undefined) {
-         anime1.play();
-         this.anima1OneShot=true;
-      
+      console.log("Scroll1");
+      if (this.anima1OneShot == false) {
+        if (direction != undefined) {
+          anime1.play();
+          anime2.play();
+          anime3.play();
+          this.anima1OneShot = true;
+        }
       }
-       }  
-
-     /* console.log(this.anima1OneShot);
-      this.anima1OneShot=true
-      console.log(this.anima1OneShot);*/
     },
 
     onWaypoint({ going, direction }) {
@@ -346,16 +422,36 @@ export default {
   },
 
   mounted() {
-    anime1=  this.$anime({
-        targets: "#num1",
-        value: [0, 1005],
-        round: 1,
-        easing: "easeInOutExpo",
-        duration: 5000,
-        loop:false,
-        autoplay:false,
-        complete: () => {},
-      });
+    anime1 = this.$anime({
+      targets: "#num1",
+      innerHTML: [0, 16],
+      round: 1,
+      easing: "easeInOutExpo",
+      duration: 5000,
+      loop: false,
+      autoplay: false,
+      complete: () => {},
+    });
+    anime2 = this.$anime({
+      targets: "#num2",
+      innerHTML: [0, 2000],
+      round: 1,
+      easing: "easeInOutExpo",
+      duration: 5000,
+      loop: false,
+      autoplay: false,
+      complete: () => {},
+    });
+    anime3 = this.$anime({
+      targets: "#num3",
+      innerHTML: [0, 300],
+      round: 1,
+      easing: "easeInOutExpo",
+      duration: 5000,
+      loop: false,
+      autoplay: false,
+      complete: () => {},
+    });
     /*
 const scene2 = this.$scrollmagic.scene({
     // ID of element where animation starts
@@ -381,7 +477,4 @@ const scene2 = this.$scrollmagic.scene({
 
 
 <style>
-/*
-
-*/
 </style>

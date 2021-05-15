@@ -5,8 +5,8 @@
     <div class="self-center  h-40 bg-gradient-to-b from-gray-700 to-black ">Footer</div>
   </div> -->
   <div>
-    <div class="w-full bgFooter">
-      <div v-if="$nuxt.$route.path == '/'">
+    <div class="w-full bg-black bgFooter">
+      <div v-if="$nuxt.$route.path == '/'" class="bg-black ">
         <img
           :src=" require(`~/assets/img/footer2-${mobile}.jpg`)"
           alt="footer img"

@@ -16,7 +16,19 @@ export default {
             email: "Email",
             btn: "Invia un Messaggio",
         },
+        btn2: "Scopri di piú",
         fotogalery: "Galleria",
+        portfolio: {
+            title: "Portfolio",
+            content1: "Anni di Esperienza",
+            content2: "Lavori Effettuati",
+            content3: "Clienti Soddisfatti",
+        },
+        service: {
+            title: "Servizi Offerti",
+            content: "Relazioni, Sondaggi, Prove Penetrometriche, Piani di utilizzo, Microzonazione Sismica, Ricerca Acqua e molto altro",
+
+        }
     },
     contacts: {
         title: "Invia un messaggio",
