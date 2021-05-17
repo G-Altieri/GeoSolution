@@ -77,39 +77,166 @@
       />
     </div>
 
-    <!-- Dove siamo -->
-    <div class="bg-white text-black grid justify-items-stretch">
-      <!-- Title -->
-      <div class="text-3xl font-bold mt-8 mb-4">{{ $t("home.dovesiamo") }}</div>
-      <!-- Gps -->
-      <div class="flex items-stretch my-6 justify-self-center">
-        <img
-          src="~/assets/img/gps.svg"
-          alt="Logo GPS"
-          width="30px"
-          class="justify-self-end mx-3"
-        />
-        <div
-          class="flex-grow self-center font-light text-left col-span-2 w-60 lg:w-56"
-          :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
-        >
-          Via Pitagora, 69, 66054 Vasto CH
+    <!-- Portfolio -->
+
+    <div class="bg-white text-black">
+      <!-- Title Portfolio-->
+      <div class="text-4xl font-semibold my-20">
+        {{ $t("home.portfolio.title") }}
+      </div>
+
+      <!-- Anni di Esperinza
+     Lavori Effettuati
+     Clienti Soddisfatti
+ -->
+
+      <!-- Animazioni Numeri aziendali -->
+      <div
+        class="my-12 mb-12 text-center w-full gap-4 grid grid-cols-1 md:grid-cols-3 flex items-center bg-white text-black"
+        v-waypoint="{ active: true, callback: scrollAnimIndex }"
+      >
+        <!-- Element 1 -->
+        <div class="grid grid-row-2 gap-4 my-8">
+          <!-- Title 1 -->
+          <div class="text-2xl">{{ $t("home.portfolio.content1") }}</div>
+          <!-- 1 -->
+          <div class="text-5xl text-center flex inline-flex">
+            <div class="flex-auto text-right">+</div>
+            <div id="num1" class="flex-auto text-left">x</div>
+          </div>
+        </div>
+
+        <!-- Element 2 -->
+        <div class="grid grid-row-2 gap-4 my-4">
+          <!-- Title 2 -->
+          <div class="text-2xl">{{ $t("home.portfolio.content2") }}</div>
+          <!-- 2 -->
+          <div class="text-5xl text-center flex inline-flex">
+            <div class="flex-auto text-right">+</div>
+            <div id="num2" class="flex-auto text-left">x2</div>
+          </div>
+        </div>
+
+        <!-- Element 3 -->
+        <div class="grid grid-row-2 gap-4 mt-8">
+          <!-- Title 3 -->
+          <div class="text-2xl">{{ $t("home.portfolio.content3") }}</div>
+          <!-- 3 -->
+          <div class="text-5xl text-center flex inline-flex">
+            <div class="flex-auto text-right">+</div>
+            <div id="num3" class="flex-auto text-left">x3</div>
+          </div>
         </div>
       </div>
+      <!-- Fine Portfolio Content -->
+
+      <!-- Scopri di piu Portfolio-->
+      <div class="mb-32 mx-auto">
+        <nuxt-link to="/portfolio">
+          <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
+            {{ $t("home.btn2") }}
+          </div>
+        </nuxt-link>
+      </div>
+    </div>
+    <!-- Fine portafolio -->
+
+    <!-- Separe Fossil Illustration Home -->
+    <div class="">
+      <img
+        :src="require(`~/assets/img/illustration_fossil-${MediaQuery}.svg`)"
+        alt="illustration_fossil"
+        width="100%"
+      />
     </div>
 
-    <!-- Mappa -->
-    <div class="bg-white">
-      <iframe
-        class="shadow-lg mb-6 my-6"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.275976132437!2d14.703210646450747!3d42.11952658530392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330ddb3244e5ccd%3A0x346b60805fcb287e!2sGeo%20Solution%20Studio%20di%20Geologia%20di%20Taddei%20Gianluca!5e0!3m2!1sit!2sit!4v1620675696385!5m2!1sit!2sit"
-        width="100%"
-        height="450"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-      ></iframe>
+    <!-- Servizi -->
+    <!-- Container servizi e portfolio -->
+    <div class="bg-black text-white">
+      <!-- Title Service-->
+      <div class="text-4xl font-semibold mt-20 mb-6">
+        {{ $t("home.service.title") }}
+      </div>
+
+      <!-- Content Service Index -->
+      <div
+        class="text-white text-2xl font-nomal my-4 px-4 md:px-6 lg:px-12 mx-auto"
+      >
+        {{ $t("home.service.content") }}
+      </div>
+
+      <!-- grid img service -->
+      <div
+        class="my-12 mb-10 mx-auto text-center gap-6 justify-items-center w-3/4 lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        id="indexService"
+      >
+        <serviceIndex width="100" img="geologiche" />
+        <serviceIndex width="100" img="idrogeologiche" />
+        <serviceIndex width="100" img="sondaggi" />
+        <serviceIndex width="100" img="medie" />
+        <serviceIndex width="100" img="masw" />
+        <serviceIndex width="100" img="ambiente" />
+        <serviceIndex width="100" img="scavo" />
+        <serviceIndex width="100" img="maps" />
+        <serviceIndex width="100" img="pozzo" />
+        <serviceIndex
+          width="90"
+          img="acqua"
+          classAdd="col-span-1 md:col-span-3 lg:col-span-1"
+        />
+      </div>
+
+      <!-- Scopri di piu -->
+      <div class="my-2 mb-20 mx-auto">
+        <nuxt-link to="/service">
+          <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
+            {{ $t("home.btn2") }}
+          </div>
+        </nuxt-link>
+      </div>
     </div>
+    <!-- Fine Container  -->
+    <!-- Fine Servizi -->
+
+
+
+     <!-- Separe Carosello -->
+    <div class="bg-white">
+      <VueSlickCarousel v-bind="settings" :arrows="queryPc" :dots="true">
+        <div>
+          <img
+            :src="
+              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-1.jpg`)
+            "
+            alt="Slider 1"
+            width="100%"
+          />
+        </div>
+        <div>
+          <img
+            :src="
+              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-2.jpg`)
+            "
+            alt="Slider 2"
+            width="100%"
+          />
+        </div>
+        <div>
+          <img
+            :src="
+              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-3.jpg`)
+            "
+            alt="Slider 3"
+            width="100%"
+          />
+        </div>
+      </VueSlickCarousel>
+    </div>
+    <!-- Fine carosello -->
+
+
+
+
 
     <!-- Contattami -->
     <div
@@ -161,151 +288,45 @@
       </div>
     </div>
 
-    <!-- Separe Carosello -->
-    <div class="bg-black">
-      <VueSlickCarousel v-bind="settings" :arrows="queryPc" :dots="true">
-        <div>
-          <img
-            :src="
-              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-1.jpg`)
-            "
-            alt="Slider 1"
-            width="100%"
-          />
-        </div>
-        <div>
-          <img
-            :src="
-              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-2.jpg`)
-            "
-            alt="Slider 2"
-            width="100%"
-          />
-        </div>
-        <div>
-          <img
-            :src="
-              require(`~/assets/img/slider-foto/${MediaQuery2}/slider-3.jpg`)
-            "
-            alt="Slider 3"
-            width="100%"
-          />
-        </div>
-      </VueSlickCarousel>
-    </div>
 
-    <!-- Container servizi e portfolio -->
-    <div class="bg-black text-white">
-      <!-- Title Portfolio-->
-      <div class="text-4xl font-semibold my-20">
-        {{ $t("home.portfolio.title") }}
-      </div>
-
-
-      <!-- Anni di Esperinza
-     Lavori Effettuati
-     Clienti Soddisfatti
- -->
-
-
-      <!-- Animazioni Numeri aziendali -->
-        <div
-          class="my-12 mb-12 text-center w-full gap-4 grid grid-cols-1 md:grid-cols-3 flex items-center"
-          v-waypoint="{ active: true, callback: scrollAnimIndex }">
-
-        <!-- Element 1 -->
-        <div class="grid grid-row-2 gap-4 my-8">
-          <!-- Title 1 -->
-          <div class="text-2xl ">{{ $t("home.portfolio.content1") }}</div>
-          <!-- 1 -->
-          <div class="bg-black text-white text-5xl text-center flex inline-flex">
-            <div class="flex-auto text-right">+</div>
-            <div id="num1" class="flex-auto text-left">x</div>
-          </div>
-        </div>
-
-
-        <!-- Element 2 -->
-        <div class="grid grid-row-2 gap-4 my-4">
-          <!-- Title 2 -->
-          <div class="text-2xl ">{{ $t("home.portfolio.content2") }}</div>
-          <!-- 2 -->
-          <div class="bg-black text-white text-5xl text-center flex inline-flex">
-            <div class="flex-auto text-right">+</div>
-            <div id="num2" class="flex-auto text-left">x2</div>
-          </div>
-        </div>
-
-
-        <!-- Element 3 -->
-        <div class="grid grid-row-2 gap-4 mt-8">
-          <!-- Title 3 -->
-          <div class="text-2xl">{{ $t("home.portfolio.content3") }}</div>
-          <!-- 3 -->
-          <div class="bg-black text-white text-5xl text-center flex inline-flex">
-            <div class="flex-auto text-right">+</div>
-            <div id="num3" class="flex-auto text-left">x3</div>
-          </div>
-        </div>
-
-      </div>
-      <!-- Fine Portfolio Content -->
-
-      <!-- Scopri di piu Portfolio-->
-      <div class="mb-32 mx-auto">
-        <nuxt-link to="/portfolio">
-          <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
-            {{ $t("home.btn2") }}
-          </div>
-        </nuxt-link>
-      </div>
-
-
-
-      <!-- Title Service-->
-      <div class="text-4xl font-semibold mt-20 mb-6">
-        {{ $t("home.service.title") }}
-      </div>
-
-      <!-- Content Service Index -->
-      <div
-        class="text-white text-2xl font-nomal my-4 px-4 md:px-6 lg:px-12 mx-auto"
-      >
-        {{ $t("home.service.content") }}
-      </div>
-
-      <!-- grid img service -->
-      <div
-        class="my-12 mb-10 mx-auto text-center gap-6 justify-items-center w-3/4 lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-        id="indexService"
-      >
-        <serviceIndex width="100" img="geologiche" />
-        <serviceIndex width="100" img="idrogeologiche" />
-        <serviceIndex width="100" img="idrogeologiche" />
-        <serviceIndex width="100" img="sondaggi" />
-        <serviceIndex width="100" img="medie" />
-        <serviceIndex width="100" img="masw" />
-        <serviceIndex width="100" img="ambiente" />
-        <serviceIndex width="100" img="scavo" />
-        <serviceIndex width="100" img="maps" />
-        <serviceIndex width="100" img="pozzo" />
-        <serviceIndex
-          width="90"
-          img="acqua"
-          classAdd="col-span-2 md:col-span-1 lg:col-span-5"
+    <!-- Dove siamo -->
+    <div class="bg-white text-black grid justify-items-stretch">
+      <!-- Title -->
+      <div class="text-3xl font-bold mt-8 mb-4">{{ $t("home.dovesiamo") }}</div>
+      <!-- Gps -->
+      <div class="flex items-stretch my-6 justify-self-center">
+        <img
+          src="~/assets/img/gps.svg"
+          alt="Logo GPS"
+          width="30px"
+          class="justify-self-end mx-3"
         />
-      </div>
-
-      <!-- Scopri di piu -->
-      <div class="my-2 mb-20 mx-auto">
-        <nuxt-link to="/service">
-          <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
-            {{ $t("home.btn2") }}
-          </div>
-        </nuxt-link>
+        <div
+          class="flex-grow self-center font-light text-left col-span-2 w-60 lg:w-56"
+          :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
+        >
+          Via Pitagora, 69, 66054 Vasto CH
+        </div>
       </div>
     </div>
-    <!-- Fine Container  -->
+
+   
+
+
+     <!-- Mappa -->
+    <div class="bg-black">
+      <iframe
+        class="shadow-lg "
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.275976132437!2d14.703210646450747!3d42.11952658530392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330ddb3244e5ccd%3A0x346b60805fcb287e!2sGeo%20Solution%20Studio%20di%20Geologia%20di%20Taddei%20Gianluca!5e0!3m2!1sit!2sit!4v1620675696385!5m2!1sit!2sit"
+        width="100%"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+
+   
   </div>
 </template>
 
@@ -397,7 +418,7 @@ export default {
   },
   methods: {
     scrollAnimIndex({ going, direction }) {
-      console.log("Scroll1");
+      // console.log("Scroll1");
       if (this.anima1OneShot == false) {
         if (direction != undefined) {
           anime1.play();
