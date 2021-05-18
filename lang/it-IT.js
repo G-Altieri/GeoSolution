@@ -8,6 +8,8 @@ export default {
             twoEnd: " che interessano l’ambiente ed il territorio.",
             threeB: "Affidabilità, concretezza e know-how specializzato",
             three: " fanno di GeoSolution un valido partner per studi di progettazione, ditte di costruzione e per ogni altra azienda operante sul territorio.",
+            portfolio1: "Offriamo alla clientela sia essa azienda, amministrazione municipale, ente statale, privato tutto il supporto geologico per ottenere il",
+            portfolio2: "miglior risultato possibile",
         },
         dovesiamo: "Puoi trovarci qui",
         contatti: {
@@ -58,4 +60,7 @@ export default {
             10: "Ricerca acqua per realizzazione pozzi",
         }
     },
+    footer: {
+        test: "footer",
+    }
 }

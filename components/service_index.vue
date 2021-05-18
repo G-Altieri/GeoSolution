@@ -7,7 +7,7 @@
             :src="require(`~/assets/img/service/${img}.svg`)" 
              :alt="img"
             :width="width+'px'"
-            class=" rounded-xl my-4 mx-6"
+            class=" rounded-xl my-4 mx-6 noImgSelect"
           />
       
   </div>

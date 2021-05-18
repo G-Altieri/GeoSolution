@@ -5,7 +5,7 @@
 
 
 
-<div class="container mx-auto h-screen w-full bg-white relative contaienerPage">
+<div class="container mx-auto h-screen w-full bg-white relative contaienerPage ">
  
     <!-- NavBar -->
     <NavBar />
@@ -13,7 +13,7 @@
     <!-- Menu --> 
 
     <!-- Body --> 
-    <Nuxt />
+    <Nuxt  />
 
     <Footer :mobile="MediaQuery3"/>
 </div>

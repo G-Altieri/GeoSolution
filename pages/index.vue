@@ -1,10 +1,11 @@
 <template>
-  <div class="mx-auto text-white grid grid-cols-1 text-center bg-black">
+  <div class="mx-auto text-white grid grid-cols-1 text-center bg-white " >
     <!-- Immagine di Copertina -->
     <div>
       <img
         :src="require(`~/assets/img/home-img-1-${MediaQuery}.jpg`)"
         alt="Copertina GeoSolution"
+        class="noImgSelect"
       />
     </div>
 
@@ -18,13 +19,14 @@
         'px-6': queryTablet,
         'px-40': queryPc,
       }"
+      class="bg-black"
     >
       <!-- Prima il piccone-->
       <div class="my-24">
         <img
           src="~/assets/img/piccone.svg"
           alt="Piccole"
-          class="mx-auto"
+          class="mx-auto noImgSelect"
           width="60px"
         />
         <div class="text-white my-4 font-light">
@@ -40,7 +42,7 @@
         <img
           src="~/assets/img/alberi.svg"
           alt="Piccole"
-          class="mx-auto"
+          class="mx-auto noImgSelect"
           width="60px"
         />
         <div class="text-white my-4 font-light">
@@ -56,7 +58,7 @@
         <img
           src="~/assets/img/earth.svg"
           alt="Piccole"
-          class="mx-auto"
+          class="mx-auto noImgSelect"
           width="60px"
         />
         <div class="text-white my-4 font-light">
@@ -73,16 +75,20 @@
       <img
         :src="require(`~/assets/img/home-img-2-${MediaQuery}.jpg`)"
         alt="Img del suolo terrestre"
-        class="w-full"
+        class="w-full noImgSelect"
       />
     </div>
 
     <!-- Portfolio -->
-
     <div class="bg-white text-black">
       <!-- Title Portfolio-->
       <div class="text-4xl font-semibold my-20">
         {{ $t("home.portfolio.title") }}
+        <!-- Content Text -->
+        <div class="text-2xl font-light px-6 my-6">
+          {{ $t("home.illutration.portfolio1") }}
+          <b class="font-semibold"> {{ $t("home.illutration.portfolio2") }}</b>
+        </div>
       </div>
 
       <!-- Anni di Esperinza
@@ -96,7 +102,16 @@
         v-waypoint="{ active: true, callback: scrollAnimIndex }"
       >
         <!-- Element 1 -->
-        <div class="grid grid-row-2 gap-4 my-8">
+        <div class="grid grid-row-3 gap-4 my-8">
+          <!-- Illustration 1 -->
+          <div class="justify-center flex">
+            <img
+            src="~/assets/img/2021.svg"
+            alt="Logo Telefono"
+            width="60px"
+            class="self-center min30 noImgSelect"
+          />
+          </div>
           <!-- Title 1 -->
           <div class="text-2xl">{{ $t("home.portfolio.content1") }}</div>
           <!-- 1 -->
@@ -108,6 +123,15 @@
 
         <!-- Element 2 -->
         <div class="grid grid-row-2 gap-4 my-4">
+           <!-- Illustration 2 -->
+          <div class="justify-center flex">
+            <img
+            src="~/assets/img/elmetto.svg"
+            alt="Logo Telefono"
+            width="60px"
+            class="self-center min30 noImgSelect"
+          />
+          </div>
           <!-- Title 2 -->
           <div class="text-2xl">{{ $t("home.portfolio.content2") }}</div>
           <!-- 2 -->
@@ -116,9 +140,17 @@
             <div id="num2" class="flex-auto text-left">x2</div>
           </div>
         </div>
-
         <!-- Element 3 -->
-        <div class="grid grid-row-2 gap-4 mt-8">
+        <div class="grid grid-row-2 gap-4 my-4">
+           <!-- Illustration 3 -->
+          <div class="justify-center flex">
+            <img
+            src="~/assets/img/clientiSoddisfatti.svg"
+            alt="Logo Telefono"
+            width="60px"
+            class="self-center min30 noImgSelect" 
+          />
+          </div>
           <!-- Title 3 -->
           <div class="text-2xl">{{ $t("home.portfolio.content3") }}</div>
           <!-- 3 -->
@@ -131,7 +163,7 @@
       <!-- Fine Portfolio Content -->
 
       <!-- Scopri di piu Portfolio-->
-      <div class="mb-32 mx-auto">
+      <div class="mb-10 mx-auto">
         <nuxt-link to="/portfolio">
           <div class="btn2 p-3 mx-auto duration-300 shadow-lg">
             {{ $t("home.btn2") }}
@@ -147,6 +179,8 @@
         :src="require(`~/assets/img/illustration_fossil-${MediaQuery}.svg`)"
         alt="illustration_fossil"
         width="100%"
+        style="transform: translateY(1px)"
+        class="noImgSelect"
       />
     </div>
 
@@ -154,7 +188,7 @@
     <!-- Container servizi e portfolio -->
     <div class="bg-black text-white">
       <!-- Title Service-->
-      <div class="text-4xl font-semibold mt-20 mb-6">
+      <div class="text-4xl font-semibold mt-10 mb-12">
         {{ $t("home.service.title") }}
       </div>
 
@@ -167,7 +201,7 @@
 
       <!-- grid img service -->
       <div
-        class="my-12 mb-10 mx-auto text-center gap-6 justify-items-center w-3/4 lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        class="my-14 mb-12 mx-auto text-center gap-6 justify-items-center w-3/4 lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         id="indexService"
       >
         <serviceIndex width="100" img="geologiche" />
@@ -182,7 +216,7 @@
         <serviceIndex
           width="90"
           img="acqua"
-          classAdd="col-span-1 md:col-span-3 lg:col-span-1"
+          classAdd="col-span-1 md:col-span-3 lg:col-span-1 noImgSelect"
         />
       </div>
 
@@ -195,12 +229,9 @@
         </nuxt-link>
       </div>
     </div>
-    <!-- Fine Container  -->
     <!-- Fine Servizi -->
 
-
-
-     <!-- Separe Carosello -->
+    <!-- Separe Carosello -->
     <div class="bg-white">
       <VueSlickCarousel v-bind="settings" :arrows="queryPc" :dots="true">
         <div>
@@ -210,6 +241,7 @@
             "
             alt="Slider 1"
             width="100%"
+            class="noImgSelect"
           />
         </div>
         <div>
@@ -219,6 +251,7 @@
             "
             alt="Slider 2"
             width="100%"
+            class="noImgSelect"
           />
         </div>
         <div>
@@ -228,15 +261,12 @@
             "
             alt="Slider 3"
             width="100%"
+            class="noImgSelect"
           />
         </div>
       </VueSlickCarousel>
     </div>
     <!-- Fine carosello -->
-
-
-
-
 
     <!-- Contattami -->
     <div
@@ -244,79 +274,85 @@
       :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
     >
       <!-- Title -->
-      <div class="text-3xl font-bold mt-8 mb-3">
+      <div class="text-3xl lg:text-4xl font-bold mt-12 mb-4">
         {{ $t("home.contatti.title") }}
       </div>
-
-      <!-- Container Contatti -->
-      <div class="grid-cols-6 grid gap-6 mt-4 mb-12 w-full md:w-1/2 mx-auto">
-        <!-- Telephone -->
-        <img
-          src="~/assets/img/telefono.svg"
-          alt="Logo Telefono"
-          width="30px"
-          class="justify-self-end col-start-2 col-end-2"
-        />
-        <div
-          class="flex-grow flex-shrink col-start-3 col-end-6 col-span-3 self-center font-light text-left"
-        >
-          <!-- {{ $t("home.contatti.telefono") }}: -->
-          0873 363279
+    </div>
+    <!-- Container Contatti -->
+    <div class="w-full grid grid-cols-1 mx-auto bg-white text-black">
+      <!-- Telephone -->
+      <div
+        class="text-lg md:text-xl text-center flex items-stretch inline-flex my-6"
+      >
+        <div class="flex-auto float-right">
+          <img
+            src="~/assets/img/telefono.svg"
+            alt="Logo Telefono"
+            width="30px"
+            class="float-right self-center min30 noImgSelect"
+          />
         </div>
-        <!-- Email -->
-        <img
-          src="~/assets/img/email.svg"
-          alt="Logo Telefono"
-          width="30px"
-          class="inline-block justify-self-end col-start-2 col-end-2"
-        />
-        <div
-          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
-        >
-          <!-- {{ $t("home.contatti.email") }}: -->
+        <div class="flex-auto text-left self-center mx-6">0873 363279</div>
+      </div>
+
+      <!-- Email -->
+      <div
+        class="text-lg md:text-xl text-center flex items-stretch inline-flex mb-6"
+      >
+        <div class="flex-auto float-right">
+          <img
+            src="~/assets/img/email.svg"
+            alt="Logo Telefono"
+            width="30px"
+            class="float-right self-center min30 noImgSelect"
+          />
+        </div>
+        <div class="flex-auto text-left self-center mx-6">
           taddeigian@gmail.com
         </div>
       </div>
 
       <!-- Button Invia Email -->
-      <div class="my-4 mb-12">
+      <div class="mb-12">
         <nuxt-link to="/contacts">
-          <div class="btn p-3 mx-auto duration-150 shadow-lg">
+          <div
+            class="btn p-2 mx-auto duration-150 shadow-lg"
+            style="width: 190px"
+          >
             {{ $t("home.contatti.btn") }}
           </div>
         </nuxt-link>
       </div>
     </div>
 
-
     <!-- Dove siamo -->
-    <div class="bg-white text-black grid justify-items-stretch">
+    <div class="bg-white text-black">
       <!-- Title -->
-      <div class="text-3xl font-bold mt-8 mb-4">{{ $t("home.dovesiamo") }}</div>
+      <div class="text-3xl lg:text-4xl font-bold mt-8 mb-4">
+        {{ $t("home.dovesiamo") }}
+      </div>
       <!-- Gps -->
-      <div class="flex items-stretch my-6 justify-self-center">
-        <img
-          src="~/assets/img/gps.svg"
-          alt="Logo GPS"
-          width="30px"
-          class="justify-self-end mx-3"
-        />
-        <div
-          class="flex-grow self-center font-light text-left col-span-2 w-60 lg:w-56"
-          :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
-        >
+      <div
+        class="text-lg md:text-xl text-center items-stretch flex inline-flex my-6"
+      >
+        <div class="flex-auto float-right">
+          <img
+            src="~/assets/img/gps.svg"
+            alt="Logo Telefono"
+            width="30px"
+            class="float-right self-center min30 noImgSelect"
+          />
+        </div>
+        <div class="flex-auto text-left mx-6 self-center">
           Via Pitagora, 69, 66054 Vasto CH
         </div>
       </div>
     </div>
 
-   
-
-
-     <!-- Mappa -->
-    <div class="bg-black">
+    <!-- Mappa -->
+    <div class="bg-black lg:mt-4 mb-12">
       <iframe
-        class="shadow-lg "
+        class="shadow-lg"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.275976132437!2d14.703210646450747!3d42.11952658530392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330ddb3244e5ccd%3A0x346b60805fcb287e!2sGeo%20Solution%20Studio%20di%20Geologia%20di%20Taddei%20Gianluca!5e0!3m2!1sit!2sit!4v1620675696385!5m2!1sit!2sit"
         width="100%"
         height="450"
@@ -325,8 +361,6 @@
         loading="lazy"
       ></iframe>
     </div>
-
-   
   </div>
 </template>
 
@@ -498,4 +532,7 @@ const scene2 = this.$scrollmagic.scene({
 
 
 <style>
+.min30 {
+  min-width: 30px;
+}
 </style>

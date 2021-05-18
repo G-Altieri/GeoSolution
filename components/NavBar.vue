@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div
-      class="mx-auto relative w-full h-14 bg-white"
-      v-bind:class="{ 'rounded-t-3xl': /*!mquery*/ false }"
-    >
+    <!-- v-bind:class="{ 'invisible':!scrollUp}" -->
+    <div class="mx-auto relative w-full h-14 bg-white z-50" id="navBar">
       <!-- Container NavBar -->
       <div class="flex" v-bind:class="{ 'mx-2': mquery, 'mx-7': !mquery }">
         <!-- Logo -->
 
         <div class="flex-none text-left grid" @click="navClick()">
-          <nuxt-link to="/"  class="self-center justify-self-start" >
+          <nuxt-link to="/" class="self-center justify-self-start">
             <img
               src="~assets/img/logo-black.svg"
               alt="Logo GeoSolution"
@@ -81,8 +79,8 @@
         <!-- Logo Menu -->
         <div
           class="flex-none grid text-right float-right h-14"
-          style="width:30px;"
-           :style="{ transform: 'translateX('+ queryMobile + 'px)' }"
+          style="width: 30px"
+          :style="{ transform: 'translateX(' + queryMobile + 'px)' }"
         >
           <svg
             class="ham ham6 justify-self-end grid"
@@ -111,7 +109,7 @@
     <!-- Menu Overlay -->
     <div
       v-show="StatusMenu"
-      class="w-full bg-black h-full absolute grid justify-items-center flex z-50"
+      class="w-full bg-black h-full fixed grid justify-items-center flex z-40"
       id="menuOver"
     >
       <div
@@ -119,15 +117,14 @@
         style="transform: translateY(-45px)"
       >
         <ul id="menu-down" class="" @click="clickLink()">
-          
-          <nuxt-link to="/" v-show="$nuxt.$route.path!='/'">
+          <nuxt-link to="/" v-show="$nuxt.$route.path != '/'">
             <li id="el0" class="mb-4" @mouseover="hoverElement('el0')">
               Home
               <div class="line bg-white w-0 h-0.5"></div>
             </li>
           </nuxt-link>
 
-          <nuxt-link to="/contacts" v-show="$nuxt.$route.path!='/contacts'">
+          <nuxt-link to="/contacts" v-show="$nuxt.$route.path != '/contacts'">
             <li id="el1" class="mb-4" @mouseover="hoverElement('el1')">
               Contatti
               <div class="line bg-white w-0 h-0.5"></div>
@@ -135,14 +132,14 @@
             <!-- border-white border-b-2 -->
           </nuxt-link>
 
-          <nuxt-link to="/service" v-show="$nuxt.$route.path!='/service'">
+          <nuxt-link to="/service" v-show="$nuxt.$route.path != '/service'">
             <li id="el2" class="mb-4" @mouseover="hoverElement('el2')">
               Servizi
               <div class="line bg-white w-0 h-0.5"></div>
             </li>
           </nuxt-link>
 
-          <nuxt-link to="/portfolio" v-show="$nuxt.$route.path!='/portfolio'">
+          <nuxt-link to="/portfolio" v-show="$nuxt.$route.path != '/portfolio'">
             <li id="el3" class="mb-4" @mouseover="hoverElement('el3')">
               Portfolio
               <div class="line bg-white w-0 h-0.5"></div>
@@ -157,18 +154,20 @@
 <script>
 var t1;
 var t2;
+var t3;
+var t4;
 export default {
   data() {
     return {
       StatusMenu: false,
       animeInCorso: false,
       open: false,
+      scrollUp: true,
+      lastScollPosition: 20,
     };
   },
-
-  created() {},
   computed: {
-     queryMobile() {
+    queryMobile() {
       switch (this.$mq) {
         case "sm":
           return 7;
@@ -177,7 +176,7 @@ export default {
         case "lg":
           return 12;
       }
-      },
+    },
     mquery() {
       switch (this.$mq) {
         case "sm":
@@ -234,16 +233,62 @@ export default {
       },
       +200
     );
+
+    /* t3 = this.$anime({
+     targets: "#navBar",
+      height: ["0px", "56px"],
+      opacity: ["0", "1"],
+      duration: 500,
+      autoplay:false,
+      complete: () => {
+        
+        }
+    })
+    t4 = this.$anime({
+      targets: "#navBar",
+      height: ["56px", "0px"],
+      opacity: ["1","0"],
+      duration: 500,
+      autoplay:false,
+      complete: () => {
+        this.scrollUp=false;
+      }
+    })*/
   },
+  /*
+    created () {
+          window.addEventListener('scroll', this.scrollNavBar);
+        },
+    destroyed () {
+          window.removeEventListener('scroll', this.scrollNavBar);
+        },*/
 
   methods: {
+    /* scrollNavBar(){
+      if(this.lastScollPosition>window.scrollY){
+        console.log("apro")
+        console.log(this.scrollUp)
+
+      
+          this.scrollUp=true;
+          t3.play()
+       
+      }else{
+        console.log("chiudo")
+        console.log(this.scrollUp)
+          t4.play()
+         
+      }
+      this.lastScollPosition=window.scrollY
+    },*/
+
     hoverElement(x) {
       if (x != t2) {
         this.$anime({
           targets: "#" + t2 + " .line",
           width: ["100%", "0%"],
           easing: "easeInOutQuad",
-                duration: 500,
+          duration: 500,
           complete: () => {},
         });
         this.$anime({
@@ -257,7 +302,7 @@ export default {
           targets: "#" + x + " .line",
           width: ["0%", "100%"],
           easing: "easeInOutQuad",
-                duration: 500,
+          duration: 500,
           complete: () => {},
         });
         this.$anime({
@@ -276,9 +321,9 @@ export default {
       if (!this.animeInCorso) {
         if (!this.open) {
           //faccio visulizzare subito il menu prima del animazione
-          this.hoverElement(null)
+          this.hoverElement(null);
           this.StatusMenu = true;
-           this.$store.commit("setStatus_menu", true);
+          this.$store.commit("setStatus_menu", true);
 
           //parte animazione apertura
           t1.play();
@@ -290,19 +335,19 @@ export default {
           t1.play();
           this.animeInCorso = true;
           this.open = false;
-          this.hoverElement(null)
+          this.hoverElement(null);
         }
       }
     },
-    navClick(){
-      if(this.StatusMenu){
-        this.clickLink()
+    navClick() {
+      if (this.StatusMenu) {
+        this.clickLink();
       }
     },
-    clickLink(){
-      this.StatusMenu=false
-      this.changeMenu()
-    }
+    clickLink() {
+      this.StatusMenu = false;
+      this.changeMenu();
+    },
   },
   components: {},
 };

@@ -2,7 +2,7 @@
   <div class="mx-auto text-black grid grid-cols-1 text-center bg-white">
     <div>
       <h1 class="w-full text-4xl font-lite my-20" id="titlePortfolio">
-        Portfolio Aziende
+        Aziende
       </h1>
     </div>
 
