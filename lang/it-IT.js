@@ -61,6 +61,11 @@ export default {
         }
     },
     footer: {
-        test: "footer",
+        contacts: "Contatti",
+        portfolio: "Portfolio",
+        service: "Servizi",
+        termini:"Termini e Condizioni",
+        policy:"Policy Privacy",
+        cookie:"Cookie Policy",
     }
 }

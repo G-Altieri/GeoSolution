@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto text-white grid grid-cols-1 text-center bg-white " >
+  <div class="mx-auto text-white grid grid-cols-1 text-center bg-white">
     <!-- Immagine di Copertina -->
     <div>
       <img
@@ -22,7 +22,11 @@
       class="bg-black"
     >
       <!-- Prima il piccone-->
-      <div class="my-24">
+      <div
+        class="my-24"
+        id="primaIllustration"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+      >
         <img
           src="~/assets/img/piccone.svg"
           alt="Piccole"
@@ -38,7 +42,11 @@
       </div>
 
       <!-- Seconda il piccone-->
-      <div class="my-24">
+      <div
+        class="my-24"
+        id="secondaIllustration"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+      >
         <img
           src="~/assets/img/alberi.svg"
           alt="Piccole"
@@ -54,7 +62,11 @@
         </div>
       </div>
       <!-- Terza il piccone-->
-      <div class="my-24">
+      <div
+        class="my-24"
+        id="terzaIllustration"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+      >
         <img
           src="~/assets/img/earth.svg"
           alt="Piccole"
@@ -82,19 +94,24 @@
     <!-- Portfolio -->
     <div class="bg-white text-black">
       <!-- Title Portfolio-->
-      <div class="text-4xl font-semibold my-20">
+      <div
+        class="text-4xl font-semibold my-20"
+      >
+      <div id="titlePortfolio"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }">
         {{ $t("home.portfolio.title") }}
+      </div>
         <!-- Content Text -->
-        <div class="text-2xl font-light px-6 my-6">
+        <div
+          class="text-2xl font-light px-6 my-6"
+          id="portfolioContent"
+          v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        >
           {{ $t("home.illutration.portfolio1") }}
           <b class="font-semibold"> {{ $t("home.illutration.portfolio2") }}</b>
         </div>
       </div>
 
-      <!-- Anni di Esperinza
-     Lavori Effettuati
-     Clienti Soddisfatti
- -->
 
       <!-- Animazioni Numeri aziendali -->
       <div
@@ -106,11 +123,11 @@
           <!-- Illustration 1 -->
           <div class="justify-center flex">
             <img
-            src="~/assets/img/2021.svg"
-            alt="Logo Telefono"
-            width="60px"
-            class="self-center min30 noImgSelect"
-          />
+              src="~/assets/img/2021.svg"
+              alt="Logo Telefono"
+              width="60px"
+              class="self-center min30 noImgSelect"
+            />
           </div>
           <!-- Title 1 -->
           <div class="text-2xl">{{ $t("home.portfolio.content1") }}</div>
@@ -123,14 +140,14 @@
 
         <!-- Element 2 -->
         <div class="grid grid-row-2 gap-4 my-4">
-           <!-- Illustration 2 -->
+          <!-- Illustration 2 -->
           <div class="justify-center flex">
             <img
-            src="~/assets/img/elmetto.svg"
-            alt="Logo Telefono"
-            width="60px"
-            class="self-center min30 noImgSelect"
-          />
+              src="~/assets/img/elmetto.svg"
+              alt="Logo Telefono"
+              width="60px"
+              class="self-center min30 noImgSelect"
+            />
           </div>
           <!-- Title 2 -->
           <div class="text-2xl">{{ $t("home.portfolio.content2") }}</div>
@@ -142,14 +159,14 @@
         </div>
         <!-- Element 3 -->
         <div class="grid grid-row-2 gap-4 my-4">
-           <!-- Illustration 3 -->
+          <!-- Illustration 3 -->
           <div class="justify-center flex">
             <img
-            src="~/assets/img/clientiSoddisfatti.svg"
-            alt="Logo Telefono"
-            width="60px"
-            class="self-center min30 noImgSelect" 
-          />
+              src="~/assets/img/clientiSoddisfatti.svg"
+              alt="Logo Telefono"
+              width="60px"
+              class="self-center min30 noImgSelect"
+            />
           </div>
           <!-- Title 3 -->
           <div class="text-2xl">{{ $t("home.portfolio.content3") }}</div>
@@ -188,13 +205,19 @@
     <!-- Container servizi e portfolio -->
     <div class="bg-black text-white">
       <!-- Title Service-->
-      <div class="text-4xl font-semibold mt-10 mb-12">
+      <div
+        class="text-4xl font-semibold mt-10 mb-12"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="serviceTitle"
+      >
         {{ $t("home.service.title") }}
       </div>
 
       <!-- Content Service Index -->
       <div
         class="text-white text-2xl font-nomal my-4 px-4 md:px-6 lg:px-12 mx-auto"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="serviceContent"
       >
         {{ $t("home.service.content") }}
       </div>
@@ -203,6 +226,7 @@
       <div
         class="my-14 mb-12 mx-auto text-center gap-6 justify-items-center w-3/4 lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         id="indexService"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
       >
         <serviceIndex width="100" img="geologiche" />
         <serviceIndex width="100" img="idrogeologiche" />
@@ -274,7 +298,11 @@
       :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
     >
       <!-- Title -->
-      <div class="text-3xl lg:text-4xl font-bold mt-12 mb-4">
+      <div
+        class="text-3xl lg:text-4xl font-bold mt-12 mb-4"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="titleContattami"
+      >
         {{ $t("home.contatti.title") }}
       </div>
     </div>
@@ -283,6 +311,8 @@
       <!-- Telephone -->
       <div
         class="text-lg md:text-xl text-center flex items-stretch inline-flex my-6"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="telephoneContattami"
       >
         <div class="flex-auto float-right">
           <img
@@ -298,6 +328,8 @@
       <!-- Email -->
       <div
         class="text-lg md:text-xl text-center flex items-stretch inline-flex mb-6"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="emailContattami"
       >
         <div class="flex-auto float-right">
           <img
@@ -328,12 +360,18 @@
     <!-- Dove siamo -->
     <div class="bg-white text-black">
       <!-- Title -->
-      <div class="text-3xl lg:text-4xl font-bold mt-8 mb-4">
+      <div
+        class="text-3xl lg:text-4xl font-bold mt-8 mb-4"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="titleDoveSiamo"
+      >
         {{ $t("home.dovesiamo") }}
       </div>
       <!-- Gps -->
       <div
         class="text-lg md:text-xl text-center items-stretch flex inline-flex my-6"
+        v-waypoint="{ active: true, callback: onWaypointGeneral }"
+        id="dovesiamo"
       >
         <div class="flex-auto float-right">
           <img
@@ -370,10 +408,27 @@ import serviceIndex from "@/components/service_index.vue";
 var anime1;
 var anime2;
 var anime3;
+var animeGeneral;
 export default {
   data() {
     return {
       anima1OneShot: false,
+      arrayAnimation: {
+        primaIllustration: true,
+        secondaIllustration: true,
+        terzaIllustration: true,
+
+        titlePortfolio: false,
+        portfolioContent: false,
+        titleDoveSiamo: false,
+        dovesiamo: false,
+        titleContattami: false,
+        serviceTitle: false,
+        serviceContent: false,
+        indexService: false,
+        telephoneContattami: false,
+        emailContattami: false,
+      },
 
       settings: {
         dots: true,
@@ -463,16 +518,43 @@ export default {
       }
     },
 
-    onWaypoint({ going, direction }) {
+    //***TEST */
+
+    onWaypointGeneral({ el, going, direction }) {
       // going: in, out
       // direction: top, right, bottom, left
-      if (going === this.$waypointMap.GOING_IN) {
-        console.log("waypoint going in!");
-      }
 
-      if (direction === this.$waypointMap.DIRECTION_TOP) {
-        console.log("waypoint going top!");
-      }
+      //Controllo se l elemento e presente nelle animazioni
+      if (el.id in this.arrayAnimation) {
+        //se si controllo che non sia stato animato
+        if (this.arrayAnimation[el.id] == false) {
+          //se non e stato animato controllo che non sia il primo caricamento
+          if (direction != undefined) {
+            //se non e il primo caricamento lo animo
+            this.animationGeneral(el.id);
+            //se animato no lo animo piu
+            var mykey = el.id;
+            this.arrayAnimation[mykey] = true;
+          } else {
+          } //controllo primo caricamento
+        } else {
+        } //controllo se animato
+      } else {
+      } //controllo se presente nel array
+    },
+
+    ////****/TESTTTTTT */
+    animationGeneral(x) {
+      animeGeneral = this.$anime({
+        targets: "#" + x,
+        opacity: ["0", "1"],
+        translateY: ["20", "0"],
+        easing: "easeInOutExpo",
+        duration: 1000,
+        loop: false,
+        autoplay: true,
+        complete: () => {},
+      });
     },
   },
 
@@ -507,23 +589,6 @@ export default {
       autoplay: false,
       complete: () => {},
     });
-    /*
-const scene2 = this.$scrollmagic.scene({
-    // ID of element where animation starts
-    triggerElement: '#x1',
- 
-    // {0,0.5,1} - animations starts from {top,center,end} of window
-    triggerHook: 0.5,
- 
-    // Duration of animation
-    duration: 300
-  })
-  .addIndicators({ 
-    name: 'a',
-    color:'black',
-    indent:200,
-     })
- // .addTo(controller)*/
   },
 };
 </script>
@@ -532,7 +597,4 @@ const scene2 = this.$scrollmagic.scene({
 
 
 <style>
-.min30 {
-  min-width: 30px;
-}
 </style>

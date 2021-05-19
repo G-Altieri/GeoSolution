@@ -514,3 +514,8 @@
     opacity: 0.9;
     color: white;
 }
+
+
+.min30 {
+  min-width: 30px;
+}

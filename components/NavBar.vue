@@ -109,7 +109,7 @@
     <!-- Menu Overlay -->
     <div
       v-show="StatusMenu"
-      class="w-full bg-black h-full fixed grid justify-items-center flex z-40"
+      class="w-full bg-black h-full absolute grid justify-items-center flex z-40"
       id="menuOver"
     >
       <div
