@@ -37,7 +37,7 @@
             <div class="text-sm font-light text-white text-left px-12  ">
               <nuxt-link to="/service">{{$t("footer.service")}}</nuxt-link><br />
               <nuxt-link to="/portfolio">{{$t("footer.portfolio")}}</nuxt-link><br />
-              <nuxt-link to="/contants">{{$t("footer.contacts")}}</nuxt-link><br />
+              <nuxt-link to="/contacts">{{$t("footer.contacts")}}</nuxt-link><br />
             </div>
             <div class="text-sm font-light text-white text-left px-6  ">
               <nuxt-link to="/legal/termini_condizioni">{{$t("footer.termini")}}</nuxt-link><br />

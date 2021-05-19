@@ -43,11 +43,10 @@
       </div>
     </div>
 
-
     <!-- Contattami -->
     <div
-      class="text-black bg-white grid justify-items-center"
-      :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
+      class="text-black bg-white grid justify-items-center text-md md:text-xl"
+     
     >
       <!-- Title -->
       <div class="text-3xl font-bold mt-8 mb-3">
@@ -55,44 +54,44 @@
       </div>
 
       <!-- Container Contatti -->
-        <div class="grid-cols-6 grid gap-6 mt-4 mb-12">
-          <!-- Telephone -->
-          <img
-            src="~/assets/img/telefono.svg"
-            alt="Logo Telefono"
-            width="30px"
-            class="justify-self-end col-start-2 col-end-2"
-          />
-          <div
-            class="flex-grow flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
-          >
-            {{ $t("home.contatti.telefono") }}: 0873 363279
-          </div>
-          <!-- Email -->
-          <img
-            src="~/assets/img/email.svg"
-            alt="Logo Telefono"
-            width="30px"
-            class="inline-block justify-self-end col-start-2 col-end-2"
-          />
-          <div
-            class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
-          >
-            {{ $t("home.contatti.email") }}: taddeigian@gmail.com
-          </div>
-          <!-- GPS -->
-          <img
-            src="~/assets/img/gps.svg"
-            alt="Logo GPS"
-            width="30px"
-            class="justify-self-end col-start-2 col-end-2"
-          />
-          <div
-            class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56"
-            :class="{ 'text-xl': queryTablet, 'text-md': queryMobile }"
-          >
-            Via Pitagora, 69, 66054 Vasto CH
-          </div>
+      <div class="grid-cols-6 grid gap-6 mt-4 mb-12">
+        <!-- Telephone -->
+        <img
+          src="~/assets/img/telefono.svg"
+          alt="Logo Telefono"
+          width="30px"
+          class="justify-self-end col-start-2 col-end-2"
+        />
+        <div
+          class="flex-grow flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
+        >
+          {{ $t("home.contatti.telefono") }}: 0873 363279
+        </div>
+        <!-- Email -->
+        <img
+          src="~/assets/img/email.svg"
+          alt="Logo Telefono"
+          width="30px"
+          class="inline-block justify-self-end col-start-2 col-end-2"
+        />
+        <div
+          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
+        >
+          {{ $t("home.contatti.email") }}: taddeigian@gmail.com
+        </div>
+        <!-- GPS -->
+        <img
+          src="~/assets/img/gps.svg"
+          alt="Logo GPS"
+          width="30px"
+          class="justify-self-end col-start-2 col-end-2"
+        />
+        <div
+          class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56 text-md md:text-xl"
+         
+        >
+          Via Pitagora, 69, 66054 Vasto CH
+        </div>
       </div>
 
       <iframe
@@ -110,6 +109,7 @@
 
 <script>
 import ginput from "@/components/ginput.vue";
+
 
 export default {
   data() {
@@ -129,10 +129,41 @@ export default {
     ginput,
   },
   methods: {
+     richiestaInvio() {
+        let config = {
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+  }
+}
+
+
+      const axios = require("axios");
+       axios.post(
+          "http://www.monicacentri.com/triniamajor/geosolution/install.php",
+          {
+            name: this.form.name,
+            email: this.form.email,
+            message: this.form.message,
+          },config
+        )
+         .then( (response) => {
+            console.log("Registrazione Effettuata:");
+            console.log(response);
+          })
+        .catch((error) => {
+          if (this.$axios.isCancel(error)) {
+            console.log("Request canceled", error);
+          } else {
+           
+          }
+        });
+    },
+
     invioMsg() {
       let x = this.controlloForm();
 
       if (x) {
+        this.richiestaInvio();
       } else {
       }
     },
@@ -177,7 +208,7 @@ export default {
   background-size: initial;
   background-attachment: fixed;
   background-position: center;
-width: 100%;
-height: 100px;
+  width: 100%;
+  height: 100px;
 }
 </style>
