@@ -1,5 +1,5 @@
 <template>
-  <div      :class="classAdd">
+  <nuxt-link  to="/service"    :class="classAdd">
     
 
       <img
@@ -10,7 +10,7 @@
             class=" rounded-xl my-4 mx-6 noImgSelect"
           />
       
-  </div>
+  </nuxt-link >
 </template>
 
 <script>

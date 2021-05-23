@@ -130,21 +130,21 @@ export default {
   },
   methods: {
      richiestaInvio() {
-        let config = {
-  headers: {
+        let 
+  headers= {
     'Access-Control-Allow-Origin': '*',
-  }
+  
 }
 
-
+//http://www.monicacentri.com/triniamajor/geosolution/install.php
       const axios = require("axios");
        axios.post(
-          "http://www.monicacentri.com/triniamajor/geosolution/install.php",
+          "https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb",
           {
             name: this.form.name,
             email: this.form.email,
             message: this.form.message,
-          },config
+          },headers
         )
          .then( (response) => {
             console.log("Registrazione Effettuata:");

@@ -1,7 +1,7 @@
 export default {
     home: {
         illutration: {
-            one: "GeoSolution è uno studio specializzato nell’ingegneria e nella ",
+            one: "GeoSolution è uno studio specializzato nella geologia e",
             oneB: "consulenza ambientale",
             two: "L' obiettivo primario è quello di offrire un valido ausilio multidisciplinare per la ",
             twoB: "risoluzione delle problematiche",
@@ -64,8 +64,8 @@ export default {
         contacts: "Contatti",
         portfolio: "Portfolio",
         service: "Servizi",
-        termini:"Termini e Condizioni",
-        policy:"Policy Privacy",
-        cookie:"Cookie Policy",
+        termini: "Termini e Condizioni",
+        policy: "Policy Privacy",
+        cookie: "Cookie Policy",
     }
 }
