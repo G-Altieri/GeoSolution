@@ -46,7 +46,6 @@
     <!-- Contattami -->
     <div
       class="text-black bg-white grid justify-items-center text-md md:text-xl"
-     
     >
       <!-- Title -->
       <div class="text-3xl font-bold mt-8 mb-3">
@@ -88,7 +87,6 @@
         />
         <div
           class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56 text-md md:text-xl"
-         
         >
           Via Pitagora, 69, 66054 Vasto CH
         </div>
@@ -110,7 +108,6 @@
 <script>
 import ginput from "@/components/ginput.vue";
 
-
 export default {
   data() {
     return {
@@ -129,32 +126,36 @@ export default {
     ginput,
   },
   methods: {
-     richiestaInvio() {
-        let 
-  headers= {
-    'Access-Control-Allow-Origin': '*',
-  
-}
+    richiestaInvio() {
+      let headers = {
+        "Access-Control-Allow-Origin": "*",
+      };
 
-//http://www.monicacentri.com/triniamajor/geosolution/install.php
+      //http://www.monicacentri.com/triniamajor/geosolution/install.php
+       //https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb
       const axios = require("axios");
-       axios.post(
-          "https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb",
+      axios
+        .post(
+          "http://www.monicacentri.com/triniamajor/geosolution/install.php",
           {
             name: this.form.name,
             email: this.form.email,
             message: this.form.message,
-          },headers
+          },
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
         )
-         .then( (response) => {
-            console.log("Registrazione Effettuata:");
-            console.log(response);
-          })
+        .then((response) => {
+          console.log("Registrazione Effettuata:");
+          console.log(response);
+        })
         .catch((error) => {
           if (this.$axios.isCancel(error)) {
             console.log("Request canceled", error);
           } else {
-           
           }
         });
     },
