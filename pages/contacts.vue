@@ -136,7 +136,7 @@ export default {
       const axios = require("axios");
       axios
         .post(
-          "http://www.monicacentri.com/triniamajor/geosolution/install.php",
+          "https://www.monicacentri.com/triniamajor/geosolution/install.php",
           {
             name: this.form.name,
             email: this.form.email,
@@ -144,13 +144,14 @@ export default {
           },
           {
             headers: {
-              "Access-Control-Allow-Origin": "*",
+             
             },
           }
         )
         .then((response) => {
           console.log("Registrazione Effettuata:");
           console.log(response);
+          console.log(response.data);
         })
         .catch((error) => {
           if (this.$axios.isCancel(error)) {
