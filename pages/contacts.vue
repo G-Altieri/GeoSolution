@@ -38,7 +38,38 @@
 
       <div class="my-4 mb-12 cursor-pointer pointer">
         <div class="btn p-3 mx-auto duration-150 shadow-lg" @click="invioMsg()">
-          {{ $t("contacts.form.btn") }}
+          <!-- In caso di loading -->
+          <div
+            v-if="loading"
+            class="grid grid-cols-3 flex items-stretch justify-items-stretch"
+          >
+          <!-- Cerchio Loading -->
+            <svg
+              class="animate-spin -ml-1 mr-3 h-5 w-5 self-center justify-self-center"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke-width="4"
+                stroke="black"
+              ></circle>
+              <path
+                class="opacity-75"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                fill="black"
+              ></path>
+            </svg>
+            Loading
+          </div>
+          <!-- Prima che vienie inviata la richiesta -->
+          <div v-else>
+            {{ $t("contacts.form.btn") }}
+          </div>
         </div>
       </div>
     </div>
@@ -120,6 +151,7 @@ export default {
       error_email: "",
       error_message: "",
       msg_default: "",
+      loading: false,
     };
   }, //data
   components: {
@@ -127,13 +159,10 @@ export default {
   },
   methods: {
     richiestaInvio() {
-      let headers = {
-        "Access-Control-Allow-Origin": "*",
-      };
-
       //http://www.monicacentri.com/triniamajor/geosolution/install.php
-       //https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb
+      //https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb
       const axios = require("axios");
+      this.loading = true;
       axios
         .post(
           "https://www.monicacentri.com/triniamajor/geosolution/install.php",
@@ -143,17 +172,17 @@ export default {
             message: this.form.message,
           },
           {
-            headers: {
-             
-            },
+            headers: {},
           }
         )
         .then((response) => {
           console.log("Registrazione Effettuata:");
+          this.loading = false;
           console.log(response);
           console.log(response.data);
         })
         .catch((error) => {
+          this.loading = false;
           if (this.$axios.isCancel(error)) {
             console.log("Request canceled", error);
           } else {
