@@ -382,7 +382,7 @@
           />
         </div>
         <div class="flex-auto text-left mx-6 self-center">
-          Via Pitagora, 69, 66054 Vasto CH
+         Via del Porto 100/u, 66054 Vasto CH
         </div>
       </div>
     </div>
