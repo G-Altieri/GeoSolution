@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /admin-lp/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.geosolutionvasto.it/sitemap.xml
