@@ -193,17 +193,19 @@ export default {
   methods: {
     richiestaInvio() {
       this.loading = true;
-      this.$mail
-        .send({
-          from: this.form.email, //this.form.name,
+      console.log(this.form.email,this.form.message);
+      this.$mail.send({
+          from: 'John Doe',
+  subject: 'Incredible',
+  text: 'This is an incredible test message',
+        /*  from: this.form.email, //this.form.name,
           subject: "Test0", // this.form.email,
-          text: this.form.message,
+          text: this.form.message,*/
         })
         .then((response) => {
           console.log("Registrazione Effettuata:");
           this.loading = false;
           console.log(response);
-          console.log(response.data);
         })
         .catch((error) => {
           this.loading = false;
