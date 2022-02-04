@@ -14,23 +14,26 @@ export default {
             lang: 'it'
         },
         meta: [{
-                charset: 'utf-8'
-            },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1'
-            },
-            {
-                hid: 'description',
-                name: 'description',
-                content: ''
-            }
+            charset: 'utf-8'
+        },
+        {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1'
+        },
+        {
+            hid: 'description',
+            name: 'description',
+            content: ''
+        }
         ],
         link: [{
             rel: 'icon',
             type: 'image/x-icon',
             href: 'logo.ico'
-        }]
+        }],
+
+        script: [{ src:'https://smtpjs.com/v3/smtp.js' }]
+
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
@@ -115,41 +118,41 @@ export default {
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         '@nuxtjs/axios',
-         //Nuxt Email 
-         ['nuxt-mail', {
-           message: {
-             to: 'peroniciro@gmail.com',
-           },
-           smtp: {
-             host: 'smtp.elasticemail.com',
-             port: 2525,
-             auth: {
-               user: 'lucazzottifrancesco@gmail.com',
-               pass: '92724ABAEB882C2F7B8769B5E4352E2B39C1'
-             },
-           },
-         }],
+        //Nuxt Email 
+        ['nuxt-mail', {
+            message: {
+                to: 'peroniciro@gmail.com',
+            },
+            smtp: {
+                host: 'smtp.elasticemail.com',
+                port: 2525,
+                auth: {
+                    user: 'lucazzottifrancesco@gmail.com',
+                    pass: '92724ABAEB882C2F7B8769B5E4352E2B39C1'
+                },
+            },
+        }],
         //Libreria per la gestione delle lingue
         ['nuxt-i18n', {
             lazy: true,
             locales: [{
-                    name: 'Italiano',
-                    code: 'it',
-                    iso: 'it-IT',
-                    file: 'it-IT.js'
-                },
-                {
-                    name: 'Inglese',
-                    code: 'en',
-                    iso: 'en-US',
-                    file: 'en-US.js'
-                },
-                {
-                    name: 'Spagnolo',
-                    code: 'es',
-                    iso: 'es-ES',
-                    file: 'es-ES.js'
-                },
+                name: 'Italiano',
+                code: 'it',
+                iso: 'it-IT',
+                file: 'it-IT.js'
+            },
+            {
+                name: 'Inglese',
+                code: 'en',
+                iso: 'en-US',
+                file: 'en-US.js'
+            },
+            {
+                name: 'Spagnolo',
+                code: 'es',
+                iso: 'es-ES',
+                file: 'es-ES.js'
+            },
             ],
             langDir: 'lang/',
             defaultLocale: 'it',

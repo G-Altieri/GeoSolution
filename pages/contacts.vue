@@ -193,20 +193,30 @@ export default {
   methods: {
     richiestaInvio() {
       this.loading = true;
-      console.log(this.form.email,this.form.message);
-      this.$mail.send({
+      console.log(this.form.email, this.form.message);
+      /* this.$mail.send({
           from: 'John Doe',
   subject: 'Incredible',
   text: 'This is an incredible test message',
         /*  from: this.form.email, //this.form.name,
           subject: "Test0", // this.form.email,
           text: this.form.message,*/
-        })
+      /* })
         .then((response) => {
           console.log("Registrazione Effettuata:");
           this.loading = false;
           console.log(response);
-        })
+        })*/
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "lucazzottifrancesco@gmail.com",
+        Password: "92724ABAEB882C2F7B8769B5E4352E2B39C1",
+        To: "peroniciro.com",
+        From: "lucazzottifrancesco@gmail.com",
+        Subject: "This is the subject",
+        Body: "And this is the body",
+      })
+        .then((message) => console.log(message))
         .catch((error) => {
           this.loading = false;
           console.log("Request canceled", error);
