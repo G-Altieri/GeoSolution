@@ -43,9 +43,17 @@
             v-if="loading"
             class="grid grid-cols-3 flex items-stretch justify-items-stretch"
           >
-          <!-- Cerchio Loading -->
+            <!-- Cerchio Loading -->
             <svg
-              class="animate-spin -ml-1 mr-3 h-5 w-5 self-center justify-self-center"
+              class="
+                animate-spin
+                -ml-1
+                mr-3
+                h-5
+                w-5
+                self-center
+                justify-self-center
+              "
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -93,7 +101,13 @@
           class="justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="flex-grow flex-shrink col-start-3 col-end-6 col-span-2 self-center font-light text-left"
+          class="
+            flex-grow flex-shrink
+            col-start-3 col-end-6 col-span-2
+            self-center
+            font-light
+            text-left
+          "
         >
           {{ $t("home.contatti.telefono") }}: 0873 363279
         </div>
@@ -105,7 +119,15 @@
           class="inline-block justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="inline-block flex-grow self-center col-start-3 col-end-6 col-span-3 font-light text-left col-span-2"
+          class="
+            inline-block
+            flex-grow
+            self-center
+            col-start-3 col-end-6 col-span-3
+            font-light
+            text-left
+            col-span-2
+          "
         >
           {{ $t("home.contatti.email") }}: taddeigian@gmail.com
         </div>
@@ -117,7 +139,18 @@
           class="justify-self-end col-start-2 col-end-2"
         />
         <div
-          class="flex-grow self-center font-light col-start-3 col-end-6 col-span-2 text-left col-span-2 w-60 lg:w-56 text-md md:text-xl"
+          class="
+            flex-grow
+            self-center
+            font-light
+            col-start-3 col-end-6 col-span-2
+            text-left
+            col-span-2
+            w-60
+            lg:w-56
+            text-md
+            md:text-xl
+          "
         >
           Via Pitagora, 69, 66054 Vasto CH
         </div>
@@ -159,22 +192,13 @@ export default {
   },
   methods: {
     richiestaInvio() {
-      //http://www.monicacentri.com/triniamajor/geosolution/install.php
-      //https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb
-      const axios = require("axios");
       this.loading = true;
-      axios
-        .post(
-          "https://www.monicacentri.com/triniamajor/geosolution/install.php",
-          {
-            name: this.form.name,
-            email: this.form.email,
-            message: this.form.message,
-          },
-          {
-            headers: {},
-          }
-        )
+      this.$mail
+        .send({
+          from: this.form.email, //this.form.name,
+          subject: "Test0", // this.form.email,
+          text: this.form.message,
+        })
         .then((response) => {
           console.log("Registrazione Effettuata:");
           this.loading = false;
@@ -183,10 +207,7 @@ export default {
         })
         .catch((error) => {
           this.loading = false;
-          if (this.$axios.isCancel(error)) {
-            console.log("Request canceled", error);
-          } else {
-          }
+          console.log("Request canceled", error);
         });
     },
 
@@ -230,6 +251,41 @@ export default {
     },
   },
 };
+
+/*
+  richiestaInvio() {
+        //http://www.monicacentri.com/triniamajor/geosolution/install.php
+        //https://www.monicacentri.com/BackEnd/BackEndMonicaCentri/public/api/testdb
+        const axios = require("axios");
+        this.loading = true;
+        axios
+          .post(
+            "https://www.monicacentri.com/triniamajor/geosolution/install.php",
+            {
+              name: this.form.name,
+              email: this.form.email,
+              message: this.form.message,
+            },
+            {
+              headers: {},
+            }
+          )
+          .then((response) => {
+            console.log("Registrazione Effettuata:");
+            this.loading = false;
+            console.log(response);
+            console.log(response.data);
+          })
+          .catch((error) => {
+            this.loading = false;
+            if (this.$axios.isCancel(error)) {
+              console.log("Request canceled", error);
+            } else {
+            }
+          });
+      },
+  
+  */
 </script>
 
 <style>

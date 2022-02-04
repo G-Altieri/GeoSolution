@@ -78,8 +78,6 @@ export default {
         //Anime js 
         ['nuxt-animejs'],
 
-
-
     ],
     // Add global page transition
     pageTransition: {
@@ -117,6 +115,20 @@ export default {
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         '@nuxtjs/axios',
+         //Nuxt Email 
+         ['nuxt-mail', {
+           message: {
+             to: 'peroniciro@gmail.com',
+           },
+           smtp: {
+             host: 'smtp.elasticemail.com',
+             port: 2525,
+             auth: {
+               user: 'lucazzottifrancesco@gmail.com',
+               pass: '92724ABAEB882C2F7B8769B5E4352E2B39C1'
+             },
+           },
+         }],
         //Libreria per la gestione delle lingue
         ['nuxt-i18n', {
             lazy: true,
