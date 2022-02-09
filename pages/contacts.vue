@@ -109,9 +109,10 @@
             text-left
           "
         >
-          {{ $t("home.contatti.telefono") }}: <a href="tel:+393478523830">  347 852 3830 </a>
+          {{ $t("home.contatti.telefono") }}:
+          <a href="tel:+393478523830"> 347 852 3830 </a>
         </div>
-        
+
         <!-- Email -->
         <img
           src="~/assets/img/email.svg"
@@ -153,7 +154,7 @@
             md:text-xl
           "
         >
-           Via del Porto 100/u, 66054 Vasto CH
+          Via del Porto 100/u, 66054 Vasto CH
         </div>
       </div>
 
@@ -218,7 +219,7 @@ export default {
           console.log("Request canceled", error);
         });
     },
-    richiestaInvio() {
+    richiestaInvio2() {
       this.loading = true;
       Email.send({
         Host: "smtp.elasticemail.com",
@@ -250,6 +251,7 @@ export default {
 
       if (x) {
         this.richiestaInvio();
+        this.richiestaInvio2();
       } else {
       }
     },
