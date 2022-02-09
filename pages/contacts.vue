@@ -109,8 +109,9 @@
             text-left
           "
         >
-          {{ $t("home.contatti.telefono") }}: 0873 363279
+          {{ $t("home.contatti.telefono") }}: <a href="tel:+393478523830">  347 852 3830 </a>
         </div>
+        
         <!-- Email -->
         <img
           src="~/assets/img/email.svg"
@@ -152,7 +153,7 @@
             md:text-xl
           "
         >
-          Via Pitagora, 69, 66054 Vasto CH
+           Via del Porto 100/u, 66054 Vasto CH
         </div>
       </div>
 
