@@ -211,7 +211,33 @@ export default {
       })
         .then((message) => {
           this.loading = false;
-          console.log("Email Inviata " + message);
+          console.log("Email Inviata 1 " + message);
+        })
+        .catch((error) => {
+          this.loading = false;
+          console.log("Request canceled", error);
+        });
+    },
+    richiestaInvio() {
+      this.loading = true;
+      Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "lucazzottifrancesco@gmail.com",
+        Password: "92724ABAEB882C2F7B8769B5E4352E2B39C1",
+        To: "taddeigian@gmail.com",
+        From: "lucazzottifrancesco@gmail.com",
+        Subject: "Contatto dal sito GeoSolution",
+        Body:
+          "Nome: " +
+          this.form.name +
+          " Email: " +
+          this.form.email +
+          " Messaggio: " +
+          this.form.message,
+      })
+        .then((message) => {
+          this.loading = false;
+          console.log("Email Inviata 2 " + message);
         })
         .catch((error) => {
           this.loading = false;
