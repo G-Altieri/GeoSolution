@@ -597,7 +597,7 @@ export default {
   mounted() {
     anime1 = this.$anime({
       targets: "#num1",
-      innerHTML: [0, 16],
+      innerHTML: [0, 18],
       round: 1,
       easing: "easeInOutExpo",
       duration: 4000,

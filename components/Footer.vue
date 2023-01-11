@@ -48,7 +48,7 @@
             <div
               class=" text-center col-span-2 md:col-span-3 text-sm font-light text-white mt-4"
             >
-              Dott. Geol. Taddei Gianluca <br />P.IVA 02132360690 <br> <div class="text-xs text-gray-300">©copyright all rights reserved ©2005-2021 </div> 
+              Dott. Geol. Taddei Gianluca <br />P.IVA 02132360690 <br> <div class="text-xs text-gray-300">©copyright all rights reserved ©2005-2023 </div> 
             </div>
           <!-- Scritta a fondo page -->
 

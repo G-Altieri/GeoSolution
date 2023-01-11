@@ -239,6 +239,36 @@
           width="100%"
         />
       </a>
+
+      <!-- tufillo  -->
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="http://comunedilentella.it/hh/index.php"
+        target="_blank"
+      >
+        <div class="text-2xl font-light">Tufillo</div>
+        <img
+          src="~/assets/img/loghi aziende/tufillo.png"
+          alt="guilmi"
+          class="mx-auto"
+          width="100%"
+        />
+      </a>
+
+      <!-- provincia di chieti  -->
+      <a
+        class="btnPortfolio lg:w-7/12 w-3/4 md:w-7/12 rounded-2xl mx-auto"
+        href="https://www.comune.guilmi.ch.it/"
+        target="_blank"
+      >
+        <div class="text-2xl font-light">Provincia di chieti</div>
+        <img
+          src="~/assets/img/loghi aziende/provincia_chieti.png"
+          alt="guilmi"
+          class="mx-auto"
+          width="100%"
+        />
+      </a>
     </div>
 
     <div class="my-6"></div>
