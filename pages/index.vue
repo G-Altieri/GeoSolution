@@ -1,13 +1,42 @@
 <template>
   <div class="mx-auto text-white grid grid-cols-1 text-center bg-white">
     <!-- Immagine di Copertina -->
-    <div>
-      <img
-        :src="require(`~/assets/img/home-img-1-${MediaQuery}.jpg`)"
-        alt="Copertina GeoSolution"
-        class="noImgSelect"
-      />
-    </div>
+    <section class="home-cover" ref="homeCover">
+      <div class="home-cover__sticky">
+        <img
+          :src="require(`~/assets/img/home-img-1-${MediaQuery}.jpg`)"
+          alt="Copertina GeoSolution"
+          class="home-cover__image noImgSelect"
+          :style="coverImageStyle"
+        />
+        <div class="home-cover__shade" :style="coverShadeStyle">
+          <div class="home-cover__content" :style="coverContentStyle">
+            <div class="home-cover__glass">
+              <div class="home-cover__kicker">Studio di geologia</div>
+              <h1>GeoSolution</h1>
+              <p>
+                Consulenza ambientale e supporto geologico per progettazione,
+                cantieri e territorio.
+              </p>
+              <div class="home-cover__actions">
+                <nuxt-link
+                  to="/service"
+                  class="home-cover__btn home-cover__btn--primary"
+                >
+                  {{ $t("home.service.title") }}
+                </nuxt-link>
+                <nuxt-link
+                  to="/contacts"
+                  class="home-cover__btn home-cover__btn--secondary"
+                >
+                  {{ $t("home.contatti.title") }}
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Illustrazioni -->
     <div
@@ -19,11 +48,11 @@
         'px-6': queryTablet,
         'px-40': queryPc,
       }"
-      class="bg-black"
+      class="bg-black home-intro-text"
     >
       <!-- Prima il piccone-->
       <div
-        class="my-24"
+        class="my-24 home-intro-text__item"
         id="primaIllustration"
         v-waypoint="{ active: true, callback: onWaypointGeneral }"
       >
@@ -43,7 +72,7 @@
 
       <!-- Seconda il piccone-->
       <div
-        class="my-24"
+        class="my-24 home-intro-text__item"
         id="secondaIllustration"
         v-waypoint="{ active: true, callback: onWaypointGeneral }"
       >
@@ -63,7 +92,7 @@
       </div>
       <!-- Terza il piccone-->
       <div
-        class="my-24"
+        class="my-24 home-intro-text__item"
         id="terzaIllustration"
         v-waypoint="{ active: true, callback: onWaypointGeneral }"
       >
@@ -481,6 +510,7 @@ export default {
         pauseOnFocus: true,
         pauseOnHover: true,
       },
+      coverScroll: 0,
     };
   },
   components: { VueSlickCarousel, serviceIndex },
@@ -544,8 +574,39 @@ export default {
       const startYear = 2005;
       return new Date().getFullYear() - startYear + 1;
     },
+    coverImageStyle() {
+      const blur = this.coverScroll * 10;
+      const scale = 1 + this.coverScroll * 0.035;
+      return {
+        filter: "blur(" + blur + "px)",
+        transform: "scale(" + scale + ")",
+      };
+    },
+    coverShadeStyle() {
+      return {
+        opacity: 0.08 + this.coverScroll * 0.82,
+      };
+    },
+    coverContentStyle() {
+      const opacity = Math.max(0, (this.coverScroll - 0.16) / 0.64);
+      const translateY = 34 - opacity * 34;
+      return {
+        opacity: opacity,
+        transform: "translateY(" + translateY + "px)",
+      };
+    },
   },
   methods: {
+    updateCoverScroll() {
+      if (!this.$refs.homeCover || typeof window === "undefined") {
+        return;
+      }
+
+      const coverTop = this.$refs.homeCover.offsetTop;
+      const coverHeight = this.$refs.homeCover.offsetHeight - window.innerHeight;
+      const rawProgress = (window.scrollY - coverTop) / Math.max(coverHeight, 1);
+      this.coverScroll = Math.min(Math.max(rawProgress, 0), 1);
+    },
     scrollAnimIndex({ going, direction }) {
       // console.log("Scroll1");
       if (this.anima1OneShot == false) {
@@ -599,6 +660,10 @@ export default {
   },
 
   mounted() {
+    this.updateCoverScroll();
+    window.addEventListener("scroll", this.updateCoverScroll, { passive: true });
+    window.addEventListener("resize", this.updateCoverScroll);
+
     anime1 = this.$anime({
       targets: "#num1",
       innerHTML: [0, this.experienceYears],
@@ -630,6 +695,10 @@ export default {
       complete: () => {},
     });
   },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.updateCoverScroll);
+    window.removeEventListener("resize", this.updateCoverScroll);
+  },
 };
 </script>
 
@@ -637,4 +706,208 @@ export default {
 
 
 <style>
+.home-cover {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  background: #000;
+}
+
+.home-cover__sticky {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 56px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.home-cover__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  transition: filter 80ms linear, transform 80ms linear;
+}
+
+.home-cover__shade {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 42px 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.16) 0%,
+    rgba(0, 0, 0, 0.42) 48%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+.home-cover__content {
+  width: 100%;
+  max-width: 920px;
+  color: #fff;
+  text-align: left;
+  transition: opacity 80ms linear, transform 80ms linear;
+}
+
+.home-cover__glass {
+  display: inline-block;
+  max-width: 720px;
+  padding: 0;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.78);
+}
+
+.home-cover__kicker {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.home-cover h1 {
+  margin: 0;
+  font-size: 4.3rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.home-cover p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.home-cover__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.home-cover__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 172px;
+  min-height: 46px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.home-cover__btn:hover {
+  transform: translateY(-2px);
+}
+
+.home-cover__btn--primary {
+  color: #111;
+  background: #fff;
+}
+
+.home-cover__btn--secondary {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .home-cover {
+    height: 122vh;
+    min-height: 660px;
+  }
+
+  .home-cover__sticky {
+    height: calc(100vh - 56px);
+    min-height: 560px;
+  }
+
+  .home-cover__shade {
+    align-items: flex-end;
+    padding: 34px 18px;
+  }
+
+  .home-cover__content {
+    text-align: center;
+  }
+
+  .home-cover__glass {
+    display: block;
+    padding: 0;
+  }
+
+  .home-cover h1 {
+    font-size: 3rem;
+  }
+
+  .home-cover p {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1rem;
+  }
+
+  .home-cover__actions {
+    justify-content: center;
+  }
+
+  .home-cover__btn {
+    width: 100%;
+    max-width: 290px;
+  }
+}
+
+.home-intro-text {
+  display: grid;
+  gap: 18px;
+  padding-top: 72px;
+  padding-bottom: 76px;
+}
+
+.home-intro-text__item {
+  max-width: 760px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 22px 0;
+}
+
+.home-intro-text__item img {
+  margin-bottom: 18px;
+}
+
+.home-intro-text__item .text-white {
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+@media (min-width: 1024px) {
+  .home-intro-text {
+    padding-top: 84px;
+    padding-bottom: 88px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-intro-text {
+    padding-top: 56px;
+    padding-bottom: 60px;
+  }
+
+  .home-intro-text__item {
+    padding: 18px 0;
+  }
+}
 </style>
