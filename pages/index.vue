@@ -540,6 +540,10 @@ export default {
           return "pc";
       }
     },
+    experienceYears() {
+      const startYear = 2005;
+      return new Date().getFullYear() - startYear + 1;
+    },
   },
   methods: {
     scrollAnimIndex({ going, direction }) {
@@ -597,7 +601,7 @@ export default {
   mounted() {
     anime1 = this.$anime({
       targets: "#num1",
-      innerHTML: [0, 20],
+      innerHTML: [0, this.experienceYears],
       round: 1,
       easing: "easeInOutExpo",
       duration: 4000,
